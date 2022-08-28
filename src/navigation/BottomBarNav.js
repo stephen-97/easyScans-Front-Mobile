@@ -4,7 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import InputText from "../components/InputText";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
-import { icons } from "../constants";
+import { icons, colors } from "../constants";
+import Button from "../components/Button";
+import { Formik } from "formik";
 
 const BottomBarNav = (props) => {
   const Tab = createBottomTabNavigator();
@@ -36,8 +38,18 @@ const BottomBarNav = (props) => {
     return(
         <View style={{justifyContent: "center", backgroundColor: "red", flex: 1,}}>
           <View style={styles.inputsView}>
-            <InputText placeholder="hey"/>
-            <InputText placeholder="hey"/>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            onSubmit={values => console.log(values)}
+          >
+           {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <>
+                <InputText onChangeText={handleChange('email')} title="Email" placeholder="Email / Username" value={values.email}/>
+                <InputText onChangeText={handleChange('password')} title="Password" placeholder="Password" password value={values.password}/>
+                <Button onPress={handleSubmit} title="Submit"/>
+              </>
+            )}
+          </Formik>
           </View>
         </View>
     )
@@ -45,9 +57,24 @@ const BottomBarNav = (props) => {
 
   const Test3 = () => {
     return(
-        <View>
-            <Text>Screen 3</Text>
-        </View>
+      <View style={{justifyContent: "center", backgroundColor: "red", flex: 1,}}>
+      <View style={styles.inputsView}>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={values => console.log(values)}
+      >
+       {({ handleChange, handleBlur, handleSubmit, values }) => (
+          <>
+            <InputText onChangeText={handleChange('email')} title="Email" placeholder="Email " value={values.email}/>
+            <InputText onChangeText={handleChange('email')} title="Email" placeholder="Username" value={values.email}/>
+            <InputText onChangeText={handleChange('password')} title="Password" placeholder="Password" password value={values.password}/>
+            <InputText onChangeText={handleChange('password')} title="Confirm Password" placeholder="Confirm password" password value={values.password}/>
+            <Button onPress={handleSubmit} title="Submit"/>
+          </>
+        )}
+      </Formik>
+      </View>
+    </View>
     )
   }
 
@@ -73,7 +100,7 @@ const BottomBarNav = (props) => {
             <Tab.Screen 
               key={key}
               name={item.name}
-              component={Test2} 
+              component={Test3} 
               screenOptions={{
                 headerShown: false
               }}
@@ -97,10 +124,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   inputsView:{
-    justifyContent: "center",
-    alignContent: "flex-end",
-    backgroundColor: "black",
+    backgroundColor: "white",
     paddingVertical: "5%",
-    marginHorizontal: "2.5%"
+    marginHorizontal: "2.5%",
+    paddingHorizontal: "10%",
   }
 });
