@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         marginVertical: "5%",
         height: 65,
         padding: "5%",
+        paddingRight: "20%",
         borderRadius: 15,
         borderWidth: 3,
         borderColor: colors.inputColor,
