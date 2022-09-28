@@ -55,20 +55,44 @@ const BottomBarNav = (props) => {
     )
   }
 
+
+  const samesPasswords = (firstPassword, secondPassword) => {
+    return firstPassword === secondPassword;
+  }
+
+  const correctPassword = (password) => {
+    return password.length >= 8 && /\d/.test(password) ;
+  }
+
+  const correctEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const correctUsername = (username) => {
+    return username.length > 4 && username.length < 15
+  }
+
+  const formVerification = (email, username, firstPassword, secondPassword) => {
+    if(!correctEmail(email)) return alert("Correct email is required");
+    if(!correctUsername(username)) return alert("Wrong username");
+    if(!correctPassword(firstPassword)) return alert ("Wrong password. It should have 8 charcters with at least one number.")
+    if(!samesPasswords(firstPassword, secondPassword)) return alert("Password are not the sames");
+  }
+
   const Test3 = () => {
     return(
-      <View style={{justifyContent: "center", backgroundColor: "red", flex: 1,}}>
+      <View style={{justifyContent: "center", backgroundColor: "#f66c6c", flex: 1,}}>
       <View style={styles.inputsView}>
       <Formik
-        initialValues={{ email: "", password: "" }}
-        onSubmit={values => console.log(values)}
+        initialValues={{ email: "", username: "", password: "", confirmPassword: "" }}
+        onSubmit={values => formVerification(values.email, values.username, values.password, values.confirmPassword)}
       >
        {({ handleChange, handleBlur, handleSubmit, values }) => (
           <>
             <InputText onChangeText={handleChange('email')} title="Email" placeholder="Email " value={values.email}/>
-            <InputText onChangeText={handleChange('email')} title="Email" placeholder="Username" value={values.email}/>
+            <InputText onChangeText={handleChange('username')} title="Email" placeholder="Username" value={values.email}/>
             <InputText onChangeText={handleChange('password')} title="Password" placeholder="Password" password value={values.password}/>
-            <InputText onChangeText={handleChange('password')} title="Confirm Password" placeholder="Confirm password" password value={values.password}/>
+            <InputText onChangeText={handleChange('confirmPassword')} title="Confirm Password" placeholder="Confirm password" password value={values.password}/>
             <Button onPress={handleSubmit} title="Submit"/>
           </>
         )}
@@ -125,8 +149,10 @@ const styles = StyleSheet.create({
   },
   inputsView:{
     backgroundColor: "white",
-    paddingVertical: "5%",
+    paddingVertical: "15%",
     marginHorizontal: "2.5%",
     paddingHorizontal: "10%",
+    borderTopLeftRadius: 40,
+    borderBottomRightRadius: 40,
   }
 });
