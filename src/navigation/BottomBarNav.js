@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
-import AuthentifcationForm from "../components/formComponents.js/AuthentificationForm";
+import AuthentifcationForm from "../components/formComponents/RegistrationForm/AuthentificationForm";
 import InputText from "../components/InputText";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
