@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
-import AuthentifcationForm from "../components/formComponents/RegistrationForm/AuthentificationForm";
+import RegistrationForm from "../components/formComponents/RegistrationForm/RegistrationForm";
 import InputText from "../components/InputText";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
@@ -125,7 +125,7 @@ const BottomBarNav = (props) => {
             <Tab.Screen 
               key={key}
               name={item.name}
-              component={AuthentifcationForm} 
+              component={RegistrationForm} 
               screenOptions={{
                 headerShown: false
               }}
