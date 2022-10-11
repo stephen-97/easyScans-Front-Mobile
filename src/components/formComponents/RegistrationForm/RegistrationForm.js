@@ -25,15 +25,22 @@ const RegistrationForm = (props) => {
       SetPage(page+1);
     }
 
+    const handleSubmitSecondScreen = () => {
+      if(dataTags.length === 0) return alert("Select at least one tag")
+    }
+
     const dataTagsList = ["Shonen", "Seinen", "Shojo", "catégorie 4", "catégorie 5", "catégorie 6", "catégorie 7", "catégorie 8"];
     const [dataTags, setDataTags] = useState([]);
   
     useEffect(() => {
     }, []);
+
+  
     
     return (
       <View style={{justifyContent: "center", backgroundColor: "#f66c6c", flex: 1,}}>
         <View style={styles.inputsView}>
+          {console.log(page)}
         <Formik
           initialValues={{ 
             email: "", 
@@ -49,10 +56,22 @@ const RegistrationForm = (props) => {
           <>
             {(() => {
               switch (page) {
-                case 1 :
-                  return <RegistrationSecondScreen handleSubmit={handleSubmit} data={dataTags} listOfAllTags={dataTagsList} onChangeDataTags={setDataTags}/>;
+                case 1:
+                  return <RegistrationSecondScreen 
+                            handleChangePage={SetPage} 
+                            pageNumber={page} 
+                            data={dataTags} 
+                            listOfAllTags={dataTagsList} 
+                            onChangeDataTags={setDataTags}
+                          />;
                 case 2:
-                  return <RegistrationFirstScreen handleChange={handleChange} handleSubmit={() => firstPageVerification(values)} values={values} />;
+                  return <RegistrationFirstScreen 
+                            handleChangePage={SetPage} 
+                            pageNumber={page}
+                            handleSubmit={handleSubmit}
+                            handleChange={handleChange} 
+                            values={values} 
+                          />;
                 default:
                   return null;
               }

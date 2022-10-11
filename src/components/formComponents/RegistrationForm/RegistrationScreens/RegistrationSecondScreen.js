@@ -10,10 +10,16 @@ const RegistrationSecondScreen = (props) => {
       props.onChangeDataTags(props.data.filter(data => data !== tag));
     } else props.onChangeDataTags([...props.data, tag]);
   }
+
+  const formVerification = () => {
+    if(props.data.length === 0) return alert("Put a least one tag");
+    return props.handleChangePage(props.pageNumber+1);
+  }
   
     return(
       <>
         <Text style={styles.title}>Genre favoris</Text>
+        {console.log(props.data)}
           <FlatList 
             data={props.listOfAllTags}
             contentContainerStyle={styles.flatListStyle}
@@ -29,7 +35,7 @@ const RegistrationSecondScreen = (props) => {
               </TouchableOpacity>
             )}
           />
-          <Button extraStyle={{marginHorizontal: "10%"}} onPress={null} title="Submit"/>
+          <Button extraStyle={{marginHorizontal: "10%"}} onPress={() => formVerification()} title="Submit"/>
       </>
       )
 };
