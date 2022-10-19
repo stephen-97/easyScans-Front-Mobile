@@ -36,11 +36,11 @@ const RegistrationForm = (props) => {
     }, []);
 
   
+    const [avatar, setAvatar] = useState(null);
     
     return (
       <View style={{justifyContent: "center", backgroundColor: "#f66c6c", flex: 1,}}>
         <View style={styles.inputsView}>
-          {console.log(page)}
         <Formik
           initialValues={{ 
             email: "", 
@@ -48,7 +48,7 @@ const RegistrationForm = (props) => {
             password: "", 
             confirmPassword: "",
             tagsList: [],
-            generalCondition: false
+            generalCondition: false,
           }}
           onSubmit={values => console.log(values)}
         >
@@ -56,7 +56,7 @@ const RegistrationForm = (props) => {
           <>
             {(() => {
               switch (page) {
-                case 1:
+                case 2:
                   return <RegistrationSecondScreen 
                             handleChangePage={SetPage} 
                             pageNumber={page} 
@@ -64,13 +64,15 @@ const RegistrationForm = (props) => {
                             listOfAllTags={dataTagsList} 
                             onChangeDataTags={setDataTags}
                           />;
-                case 2:
+                case 1:
                   return <RegistrationFirstScreen 
                             handleChangePage={SetPage} 
                             pageNumber={page}
                             handleSubmit={handleSubmit}
                             handleChange={handleChange} 
                             values={values} 
+                            handleChangeAvatar={setAvatar}
+                            avatar={avatar}
                           />;
                 default:
                   return null;
@@ -104,7 +106,7 @@ const RegistrationForm = (props) => {
     },
     inputsView:{
       backgroundColor: "white",
-      paddingVertical: "15%",
+      paddingVertical: "10%",
       marginHorizontal: "2.5%",
       borderTopLeftRadius: 40,
       borderBottomRightRadius: 40,

@@ -15,16 +15,18 @@ const RegistrationSecondScreen = (props) => {
     if(props.data.length === 0) return alert("Put a least one tag");
     return props.handleChangePage(props.pageNumber+1);
   }
+
+
   
     return(
       <>
         <Text style={styles.title}>Genre favoris</Text>
-        {console.log(props.data)}
           <FlatList 
             data={props.listOfAllTags}
             contentContainerStyle={styles.flatListStyle}
             columnWrapperStyle={{flexWrap : 'wrap'}}
-            numColumns={4}
+            numColumns={3}
+            key={3}
             renderItem={({item}) => (
               <TouchableOpacity
                 activeOpacity={.9}
