@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { View,  StyleSheet, Text, TouchableOpacity, FlatList } from "react-native";
+import React, {useState, useEffect, useRef} from "react";
+import { View,  StyleSheet, Text, TouchableOpacity, FlatList,Animated } from "react-native";
 import InputText from "../../InputText";
 import { icons, colors } from "../../../constants";
 import Button from "../../Button";
@@ -17,14 +17,6 @@ const RegistrationForm = (props) => {
       if(page >= 1) SetPage(page-1);
     }
 
-    const firstPageVerification = (props) => {
-      if(!correctEmail(props.email)) return alert("Correct email is required");
-      if(!correctUsername(props.username)) return alert("Wrong username");
-      if(!correctPassword(props.password)) return alert ("Wrong password. It should have 8 charcters with at least one number.")
-      if(!samesPasswords(props.password, props.confirmPassword)) return alert("Password are not the sames");
-      SetPage(page+1);
-    }
-
     const handleSubmitSecondScreen = () => {
       if(dataTags.length === 0) return alert("Select at least one tag")
     }
@@ -33,8 +25,21 @@ const RegistrationForm = (props) => {
     const [dataTags, setDataTags] = useState([]);
   
     useEffect(() => {
-    }, []);
+      //animationChangeScale();
+    }, [page===2]);
+    
+    const animValue = useRef(new Animated.Value(600)).current;
+    const animationChangeScale = () => {
+      Animated.timing(animValue, {
+        toValue: 50,
+        duration: 300,
+        useNativeDriver: false,
+      }).start();
+    }
 
+    const RegistrationLoadingScreen = () => {
+      return (<View><Text>Test</Text></View>)
+    }
   
     const [avatar, setAvatar] = useState(null);
     
@@ -56,7 +61,7 @@ const RegistrationForm = (props) => {
           <>
             {(() => {
               switch (page) {
-                case 2:
+                case 3:
                   return <RegistrationSecondScreen 
                             handleChangePage={SetPage} 
                             pageNumber={page} 
@@ -73,6 +78,9 @@ const RegistrationForm = (props) => {
                             values={values} 
                             handleChangeAvatar={setAvatar}
                             avatar={avatar}
+                          />;
+                case 2:
+                  return <RegistrationLoadingScreen
                           />;
                 default:
                   return null;

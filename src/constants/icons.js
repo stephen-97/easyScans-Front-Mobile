@@ -3,6 +3,7 @@ const home = require("../assets/icons/home.png");
 const user = require("../assets/icons/user.png");
 const backgroundColor = require("../assets/icons/navBarBackgroundColor.png");
 const avatar = require("../assets/icons/userWithoutAvatar.png");
+const spinner = require("../assets/icons/spinner.png");
 
 
 export default {
@@ -16,6 +17,9 @@ export default {
   backgroundColor,
 
   //avatar
-  avatar
+  avatar,
+
+  //spinner
+  spinner
   
 };
