@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import InputText from "../../../InputText";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated} from "react-native";
 import { correctEmail, correctUsername, correctPassword, samesPasswords} from "../../../../utility/formVerificationFunctions";
+import { SERVER } from "../../../../../config";
 import Spinner from "../../../../utility/Spinner";
 import Button from "../../../Button";
 import * as ImagePicker from "expo-image-picker";
@@ -11,6 +12,7 @@ import { icons } from "../../../../constants";
 const RegistrationFirstScreen = (props) => {
 
   const [submitValue, setSubmitValue] = useState(false);
+  const [jsonResponse, setJsonResponse] = useState(null);
 
   const firstPageVerification = () => {
     /**if(!correctEmail(props.values.email)) return alert("Correct email is required");
@@ -23,6 +25,7 @@ const RegistrationFirstScreen = (props) => {
 
   const animValue = useRef(new Animated.Value(1)).current;
   const animScaleValue = useRef(new Animated.Value(1000)).current;
+
   const animationOpacity = () => {
     Animated.timing(animValue, {
       toValue: 0,
@@ -33,13 +36,42 @@ const RegistrationFirstScreen = (props) => {
         toValue: 100,
         duration: 300,
         useNativeDriver: false,
-      }).start(() => setSubmitValue(true));
+      }).start(() => {
+        setSubmitValue(true);
+        Animated.timing(animValue, {
+          toValue: 1,
+          duration: 1,
+          useNativeDriver: false,
+        }).start()
+        RegistrationRequest();
+      });
+    });
+  }
+
+  const animationOpacityReverse= (errorMessage) => {
+    Animated.timing(animValue, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+    }).start(() => {
+      setSubmitValue(false);
+      Animated.timing(animScaleValue, {
+        toValue: 1000,
+        duration: 300,
+        useNativeDriver: false,
+      }).start(() => {
+        Animated.timing(animValue, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: false,
+        }).start(() => {
+          return alert(`Erreur : ${errorMessage}`)
+        })
+      });
     });
   }
 
 
-
-  
   const handleChooseAvatar = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       base64: true,
@@ -51,6 +83,29 @@ const RegistrationFirstScreen = (props) => {
       props.handleChangeAvatar({uri: result.uri, base64: result.base64});
     }
   };
+
+  const RegistrationRequest = () => {
+    const formData = new FormData();
+    formData.append("username", props.values.username);
+    formData.append("email", props.values.email);
+    formData.append("password", props.values.password);
+    formData.append("confirmPassword", props.values.password);
+    return fetch(`http://${SERVER}/API/API_2`, {
+      method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((jsonData) => {
+          if(jsonData.status !== 200) {
+            animationOpacityReverse(jsonData.message)
+          }
+        });
+  };
+
   
     return(
         <Animated.View style={[{marginHorizontal: "10%", opacity:animValue ,maxHeight: animScaleValue}]}>
