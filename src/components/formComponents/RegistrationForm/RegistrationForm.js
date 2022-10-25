@@ -13,7 +13,7 @@ import { SERVER } from "../../../../config";
 
 const RegistrationForm = (props) => {
   
-   const numberOfPage = 3;
+   const pages = [{page: 1, height: 100}];
    const [page, SetPage] = useState(1);
 
     const backButton = () => {
@@ -96,7 +96,8 @@ const RegistrationForm = (props) => {
           duration: 200,
           useNativeDriver: false,
         }).start(() => {
-          SetPage('loading')
+          SetPage('loading');
+          RegistrationRequest();
           Animated.timing(animValue, {
             toValue: 1,
             duration: 200,
@@ -106,7 +107,10 @@ const RegistrationForm = (props) => {
       });
     }
 
+    const [requestResponse, setRequestResponse] = useState({status: null, message: null});
+
     const RegistrationRequest = () => {
+      console.log("tedte")
       SetPage('loading');
       const formData = new FormData();
       return fetch(`http://${SERVER}/API/API_2`, {
@@ -118,30 +122,24 @@ const RegistrationForm = (props) => {
           body: formData,
         })
           .then((response) => response.json())
-          .then((jsonData) => {
+          .then((jsonData) => { 
+            setRequestResponse(jsonData)
+            if(jsonData.status !== 200){
+              animationOpacityFirstPage();
+            }
           });
     };
 
 
-    
-    const firstUpdate = useRef(true);
-    const [heightFirstView, setHeightFirstView] = useState(null);
-    const [heightSecondView, setHeightSecondView] = useState(null);
-
-    useEffect(() => {
-      if (firstUpdate.current) {
-        firstUpdate.current = false;
-        return;
-      }
-      console.log(heightFirstView)
-    }, [heightFirstView]);
 
     const selectForm = () => {
       switch (page) {
         case 1:
-          return <RegistrationFirstScreen height={setHeightFirstView} page={page} handleChangePage={animationOpacityFirstPage}/>
+          return <RegistrationFirstScreen  page={page} handleChangePage={animationOpacityFirstPage}/>
         case 2:
           return <RegistrationSecondScreen 
+                    requestResponse={requestResponse}
+                    setRequestResponse={setRequestResponse}
                     handleChangePage={animationOpacityBackFirstPage} 
                     handleSendRequest={animationOpacityLoadingPage}
                     pageNumber={page}
@@ -152,7 +150,9 @@ const RegistrationForm = (props) => {
                     avatar={avatar}
                   />;
         case 'loading':
-          return <RegistrationLoadingScreen />
+          return <RegistrationLoadingScreen 
+                    requestResponse={requestResponse}
+                  />
       }
     }
     

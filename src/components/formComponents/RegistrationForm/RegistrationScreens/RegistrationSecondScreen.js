@@ -39,29 +39,13 @@ const RegistrationSecondScreen = (props) => {
     }
   };
 
-  const RegistrationRequest = () => {
-    const formData = new FormData();
-    formData.append("username", props.values.username);
-    formData.append("email", props.values.email);
-    formData.append("password", props.values.password);
-    formData.append("confirmPassword", props.values.password);
-    return fetch(`http://${SERVER}/API/API_2`, {
-      method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-        },
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((jsonData) => {
-          if(jsonData.status !== 200) {
-            animationOpacityReverse(jsonData.message)
-          }
-        });
-  };
+  useEffect(() => {
+    if(props.requestResponse){
+      if(props.requestResponse.status === 200) alert(" erreur " + props.requestResponse.message)
+    }
+  }, [props.requestResponse]);
 
-  
+
     return(
           <View 
             style={styles.container}
