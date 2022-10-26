@@ -13,94 +13,62 @@ import { SERVER } from "../../../../config";
 
 const RegistrationForm = (props) => {
   
-   const pages = [{page: 1, height: 100}];
-   const [page, SetPage] = useState(1);
+    //sizes for animation
+    const pageSize = {small : 200, large: 1000}
 
-    const backButton = () => {
-      if(page >= 1) SetPage(page-1);
+    //pages
+    const pages = {
+      'choix': {size: pageSize.small}, 
+      'formulaire': {size: pageSize.large},
+      'loading': {size: pageSize.small},
     }
+    const [page, SetPage] = useState('choix');
 
-    const handleSubmitSecondScreen = () => {
-      if(dataTags.length === 0) return alert("Select at least one tag")
-    }
+    //animations
+    const animValue = useRef(new Animated.Value(1)).current;
+    const animScaleValue = useRef(new Animated.Value(200)).current;
+
 
     const dataTagsList = ["Shonen", "Seinen", "Shojo", "catégorie 4", "catégorie 5", "catégorie 6", "catégorie 7", "catégorie 8"];
     const [dataTags, setDataTags] = useState([]);
-  
-    
-    const animationChangeScale = () => {
-      Animated.timing(animValue, {
-        toValue: 50,
-        duration: 300,
-        useNativeDriver: false,
-      }).start();
-    }
 
-  
-    const [avatar, setAvatar] = useState(null);
-    const animValue = useRef(new Animated.Value(1)).current;
-
-
-    const animScaleValue = useRef(new Animated.Value(200)).current;
-
-    const animationOpacityFirstPage = () => {
+    const animationTinyToLarge = (newPage, response) => {
       Animated.timing(animValue, {
         toValue: 0,
-        duration: 200,
+        duration: 150,
         useNativeDriver: false,
       }).start(() => {
-        SetPage(2);
+        SetPage(newPage);
         Animated.timing(animScaleValue, {
-          toValue: 1000,
-          duration: 200,
+          toValue: pages[newPage].size,
+          duration: 150,
           useNativeDriver: false,
         }).start(() => {
+          if(response) alert(' Erreur ' + response.message);
           Animated.timing(animValue, {
             toValue: 1,
-            duration: 200,
+            duration: 150,
             useNativeDriver: false,
           }).start()
         });
       });
     }
 
-    const animationOpacityBackFirstPage = () => {
+    const animationLargeToTiny = async (newPage) => {
       Animated.timing(animValue, {
         toValue: 0,
-        duration: 200,
+        duration: 150,
         useNativeDriver: false,
       }).start(() => {
         Animated.timing(animScaleValue, {
-          toValue: 200,
-          duration: 200,
+          toValue: pages[newPage].size,
+          duration: 150,
           useNativeDriver: false,
         }).start(() => {
-          SetPage(1);
+          SetPage(newPage);
           Animated.timing(animValue, {
             toValue: 1,
-            duration: 200,
-            useNativeDriver: false,
-          }).start()
-        });
-      });
-    }
-
-    const animationOpacityLoadingPage = () => {
-      Animated.timing(animValue, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: false,
-      }).start(() => {
-        Animated.timing(animScaleValue, {
-          toValue: 200,
-          duration: 200,
-          useNativeDriver: false,
-        }).start(() => {
-          SetPage('loading');
-          RegistrationRequest();
-          Animated.timing(animValue, {
-            toValue: 1,
-            duration: 200,
+            duration: 150,
             useNativeDriver: false,
           }).start()
         });
@@ -109,45 +77,43 @@ const RegistrationForm = (props) => {
 
     const [requestResponse, setRequestResponse] = useState({status: null, message: null});
 
-    const RegistrationRequest = () => {
-      console.log("tedte")
-      SetPage('loading');
-      const formData = new FormData();
-      return fetch(`http://${SERVER}/API/API_2`, {
-        method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "multipart/form-data",
-          },
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((jsonData) => { 
-            setRequestResponse(jsonData)
-            if(jsonData.status !== 200){
-              animationOpacityFirstPage();
-            }
+    const RegistrationRequest = (values) => {
+      animationLargeToTiny('loading')
+      setTimeout(() => {
+        const formData = new FormData();
+        return fetch(`http://${SERVER}/API/API_2`, {
+          method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+            },
+          })
+            .then((response) => response.json())
+            .then((jsonData) => { 
+              if(jsonData.status !== 200){
+                animationTinyToLarge('formulaire', jsonData)
+              }
+              setRequestResponse(jsonData)
           });
+      }, 1000);
     };
 
 
 
     const selectForm = () => {
       switch (page) {
-        case 1:
-          return <RegistrationFirstScreen  page={page} handleChangePage={animationOpacityFirstPage}/>
-        case 2:
+        default: 
+          return <RegistrationFirstScreen  page={page} handleChangePage={animationTinyToLarge}/>
+        case 'choix':
+          return <RegistrationFirstScreen  page={page} handleChangePage={animationTinyToLarge}/>
+        case 'formulaire':
           return <RegistrationSecondScreen 
-                    requestResponse={requestResponse}
-                    setRequestResponse={setRequestResponse}
-                    handleChangePage={animationOpacityBackFirstPage} 
-                    handleSendRequest={animationOpacityLoadingPage}
+                    setRequestResponse={RegistrationRequest}
+                    handleChangePage={animationLargeToTiny} 
                     pageNumber={page}
                     handleSubmit={null}
                     handleChange={null} 
                     values={null} 
-                    handleChangeAvatar={setAvatar}
-                    avatar={avatar}
                   />;
         case 'loading':
           return <RegistrationLoadingScreen 
@@ -169,13 +135,6 @@ const RegistrationForm = (props) => {
     );
   };
   
-  /**
-   * <FirstPage 
-              handleChange={handleChange} 
-              handleSubmit={handleSubmit}
-              values={values}
-            />
-   */
   export default RegistrationForm;
   
   const styles = StyleSheet.create({
@@ -189,7 +148,7 @@ const RegistrationForm = (props) => {
     },
     inputsView:{
       backgroundColor: "white",
-      paddingVertical: "10%",
+      paddingVertical: "7.5%",
       marginHorizontal: "2.5%",
       borderTopLeftRadius: 40,
       borderBottomRightRadius: 40,

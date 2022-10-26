@@ -5,9 +5,10 @@ import Spinner from "../../../../utility/Spinner";
 
 const RegistrationLoadingScreen = (props) => {
 
+
     return(
           <View style={styles.container}>
-            <Spinner />
+            {props.responseRequest ? <Text>Votre compte est en attente de validation</Text> : <Spinner />}
           </View>
       )
 };
