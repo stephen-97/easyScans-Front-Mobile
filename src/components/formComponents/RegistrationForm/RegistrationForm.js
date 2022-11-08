@@ -16,118 +16,86 @@ const RegistrationForm = (props) => {
     //sizes for animation
     const pageSize = {small : 200, large: 1000}
 
-    //pages
-    const pages = {
-      'choix': {size: pageSize.small}, 
-      'formulaire': {size: pageSize.large},
-      'loading': {size: pageSize.small},
-    }
     const [page, SetPage] = useState('choix');
 
     //animations
     const animValue = useRef(new Animated.Value(1)).current;
-    const animScaleValue = useRef(new Animated.Value(200)).current;
+    const animScaleValue = useRef(new Animated.Value(1000)).current;
 
 
     const dataTagsList = ["Shonen", "Seinen", "Shojo", "catégorie 4", "catégorie 5", "catégorie 6", "catégorie 7", "catégorie 8"];
     const [dataTags, setDataTags] = useState([]);
 
-    const animationTinyToLarge = (newPage, response) => {
-      Animated.timing(animValue, {
-        toValue: 0,
-        duration: 150,
-        useNativeDriver: false,
-      }).start(() => {
-        SetPage(newPage);
-        Animated.timing(animScaleValue, {
-          toValue: pages[newPage].size,
-          duration: 150,
-          useNativeDriver: false,
-        }).start(() => {
-          if(response) alert(' Erreur ' + response.message);
-          Animated.timing(animValue, {
-            toValue: 1,
-            duration: 150,
-            useNativeDriver: false,
-          }).start()
-        });
-      });
-    }
-
-    const animationLargeToTiny = async (newPage) => {
-      Animated.timing(animValue, {
-        toValue: 0,
-        duration: 150,
-        useNativeDriver: false,
-      }).start(() => {
-        Animated.timing(animScaleValue, {
-          toValue: pages[newPage].size,
-          duration: 150,
-          useNativeDriver: false,
-        }).start(() => {
-          SetPage(newPage);
-          Animated.timing(animValue, {
-            toValue: 1,
-            duration: 150,
-            useNativeDriver: false,
-          }).start()
-        });
-      });
-    }
 
     const [requestResponse, setRequestResponse] = useState({status: null, message: null});
 
     const RegistrationRequest = (values) => {
-      animationLargeToTiny('loading')
-      setTimeout(() => {
-        const formData = new FormData();
-        return fetch(`http://${SERVER}/API/API_2`, {
-          method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-            },
-          })
-            .then((response) => response.json())
-            .then((jsonData) => { 
-              if(jsonData.status !== 200){
-                animationTinyToLarge('formulaire', jsonData)
-              }
-              setRequestResponse(jsonData)
-          });
-      }, 1000);
+      SetPage('loading')
+      return fetch(`http://${SERVER}/API/API_2`, {
+        method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((response) => response.json())
+          .then((jsonData) => { 
+            if(jsonData.status !== 200){
+              SetPage('forumaire')
+            }
+            setRequestResponse(jsonData)
+        });
     };
 
 
-
-    const selectForm = () => {
-      switch (page) {
-        default: 
-          return <RegistrationFirstScreen  page={page} handleChangePage={animationTinyToLarge}/>
-        case 'choix':
-          return <RegistrationFirstScreen  page={page} handleChangePage={animationTinyToLarge}/>
-        case 'formulaire':
-          return <RegistrationSecondScreen 
-                    setRequestResponse={RegistrationRequest}
-                    handleChangePage={animationLargeToTiny} 
-                    pageNumber={page}
-                    handleSubmit={null}
-                    handleChange={null} 
-                    values={null} 
-                  />;
-        case 'loading':
-          return <RegistrationLoadingScreen 
-                    requestResponse={requestResponse}
-                  />
-      }
-    }
+    const SignInRequest = async (values) => {
+      SetPage('loading')
+      return fetch(`http://${SERVER}/API/signing`, {
+        method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values)
+      })
+        .then((response) => response.json())
+        .then((jsonData) => { 
+          if(jsonData.status !== 200){
+            SetPage('choix')
+            alert(jsonData.msg)
+          } else {
+            setRequestResponse(jsonData)
+          }
+      });
+    };
+    
     
     return (
       <View style={{justifyContent: "center", backgroundColor: "#f66c6c", flex: 1,}}>
         <View style={styles.inputsView}>
-        <Animated.View style={[{marginHorizontal: "10%", opacity:animValue ,maxHeight: animScaleValue}]}>
+        <Animated.View style={[{marginHorizontal: "10%", opacity:animValue}]}>
           {
-            selectForm()
+            { 
+              'choix': 
+                <RegistrationFirstScreen 
+                  page={page} 
+                  handleChangePage={SetPage}
+                  setLoginRequestResponse={SignInRequest}
+                />,
+              'formulaire:':
+                <RegistrationSecondScreen 
+                  setRequestResponse={RegistrationRequest}
+                  handleChangePage={SetPage} 
+                  pageNumber={page}
+                  handleSubmit={null}
+                  handleChange={null} 
+                  values={null} 
+                />,
+                'loading': 
+                  <RegistrationLoadingScreen 
+                    requestResponse={requestResponse}
+                  />,
+            }[page]
           }
         </Animated.View>
         </View>

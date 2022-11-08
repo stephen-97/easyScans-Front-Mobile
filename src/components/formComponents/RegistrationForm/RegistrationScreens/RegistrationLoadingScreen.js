@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import { View, StyleSheet} from "react-native";
+import { View, StyleSheet, Text} from "react-native";
 import Spinner from "../../../../utility/Spinner";
 
 
@@ -8,7 +8,9 @@ const RegistrationLoadingScreen = (props) => {
 
     return(
           <View style={styles.container}>
-            {props.responseRequest ? <Text>Votre compte est en attente de validation</Text> : <Spinner />}
+            {
+              props.requestResponse ? <Text style={styles.text}>{props.requestResponse.msg}</Text>  : null
+            }
           </View>
       )
 };
@@ -18,6 +20,11 @@ const styles = StyleSheet.create({
     minHeight: 100, 
     justifyContent: "center",
   },
+  text:{
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold'
+  }
 });
 
 export default RegistrationLoadingScreen;

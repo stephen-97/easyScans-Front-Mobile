@@ -12,11 +12,6 @@ import { Formik } from 'formik';
 const RegistrationSecondScreen = (props) => {
 
   const formVerification = (values) => {
-    /**if(!correctEmail(values.email)) return alert("Correct email is required");
-    if(!correctUsername(values.username)) return alert("Wrong username");
-    if(!correctPassword(values.password)) return alert ("Wrong password. It should have 8 charcters with at least one number.")
-    if(!samesPasswords(values.password, props.values.confirmPassword)) return alert("Password are not the sames");
-    if(correctAvatarSize(values.avatarBase64Data) > 500000) return alert('Avatar size to big')**/
     props.setRequestResponse(values);
   }
 
