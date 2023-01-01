@@ -32,6 +32,7 @@ const AccountScreen = (props) => {
           <View style={styles.line}>
             <Text style={styles.legend}>Lecture verticale</Text>
             <Text style={styles.text}>{props.user ? props.user.username : 'Oui'}</Text>
+              {console.log(props)}
           </View>
         </View>
       </View>
