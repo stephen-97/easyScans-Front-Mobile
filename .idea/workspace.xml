@@ -7,8 +7,6 @@
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <workItem from="1669801052430" duration="139000" />
       <workItem from="1670597963532" duration="5719000" />
       <workItem from="1672441791151" duration="26505000" />
-      <workItem from="1672590769092" duration="496000" />
+      <workItem from="1672590769092" duration="1234000" />
     </task>
     <servers />
   </component>
