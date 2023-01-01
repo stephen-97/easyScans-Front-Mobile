@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/loiola/Bureau/Projet perso/Docker EasyScan",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/loiola/Bureau/Projet perso/Docker EasyScan&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/utility/formsVerifications" />
