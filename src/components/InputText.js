@@ -8,7 +8,7 @@ const InputText = (props) => {
 
     return(
         <View style={styles.container}>
-            {props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
+            <Image style={styles.icon} source={icons.home} />
             <TextInput
                 style={!onFocus ? styles.input : [styles.input, {borderColor: colors.inputBorderColorFocus}]}
                 onFocus={() => setOnFocus(true)}
