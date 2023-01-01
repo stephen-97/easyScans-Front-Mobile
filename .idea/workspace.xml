@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/slices/userSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/security/decodeJwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/security/encodeJwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/url/url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/formVerificationFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/formsVerifications/formVerificationFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +55,7 @@
       <workItem from="1668776252905" duration="989000" />
       <workItem from="1669801052430" duration="139000" />
       <workItem from="1670597963532" duration="5719000" />
-      <workItem from="1672441791151" duration="26505000" />
+      <workItem from="1672441791151" duration="28021000" />
     </task>
     <servers />
   </component>
@@ -79,7 +67,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="formulaire_login" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
