@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { TextInput, StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { TextInput, StyleSheet, View, Text, TouchableOpacity, Image} from "react-native";
 import colors from "../constants/colors";
 
-const Button = (props) => {
+const ButtonWithLogo = (props) => {
     const [onFocus, setOnFocus] = useState(false);
 
     return(
@@ -10,11 +10,8 @@ const Button = (props) => {
             style={[styles.button, props.extraStyle]}
             onPress={props.onPress}
         >
-<<<<<<< HEAD
-            <Text style={[styles.title, props.extraStyleText]}>{props.title}</Text>
-=======
-            <Text style={styles.title}>{props.title}</Text>
->>>>>>> main
+            <Text style={[styles.title, props.extraStyleTitle]}>{props.title}</Text>
+            <Image style={styles.icon} source={props.source} />
         </TouchableOpacity>
     )
 }
@@ -26,11 +23,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: "5%",
         height: 65,
-        justifyContent: "center",
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
     title:{
         fontSize: 20,
+        marginHorizontal: 10,
+    },
+    icon:{
+        height: 40,
+        width: 40,
+        marginHorizontal: 10,
     }
 })
 
-export default Button;
+export default ButtonWithLogo;

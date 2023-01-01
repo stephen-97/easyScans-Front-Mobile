@@ -2,6 +2,10 @@ import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import RegistrationForm from "../components/formComponents/RegistrationForm/RegistrationForm";
+<<<<<<< HEAD
+import AccountScreen from "../screens/AccountScreen";
+=======
+>>>>>>> main
 import InputText from "../components/InputText";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
@@ -16,6 +20,8 @@ const BottomBarNav = (props) => {
     return(
         <ScrollView>
             <Text style={{fontSize: 50}}>Screen 1</Text>
+<<<<<<< HEAD
+=======
             <Text style={{fontSize: 50}}>Screen 1</Text>
             <Text style={{fontSize: 50}}>Screen 1</Text>
             <Text style={{fontSize: 50}}>Screen 1</Text>
@@ -32,6 +38,7 @@ const BottomBarNav = (props) => {
             <Text style={{fontSize: 50}}>Screen 1</Text>
             <Text style={{fontSize: 50}}>Screen 1</Text>
             <Text style={{fontSize: 50}}>Screen 1</Text>
+>>>>>>> main
         </ScrollView>
     )
   }
@@ -57,6 +64,15 @@ const BottomBarNav = (props) => {
   }
 
 
+<<<<<<< HEAD
+
+
+
+  const [pagesInfo, setPagesInfo] = useState([
+    {name: "Home", component: Test1, icon: icons.home},
+    {name: "Login", component: AccountScreen, icon: icons.user},
+    {name: "Books", component: RegistrationForm, icon: icons.bd}
+=======
   const samesPasswords = (firstPassword, secondPassword) => {
     return firstPassword === secondPassword;
   }
@@ -107,6 +123,7 @@ const BottomBarNav = (props) => {
     {name: "Home", component: Test1, icon: icons.home},
     {name: "Login", component: Test2, icon: icons.user},
     {name: "Books", component: Test3, icon: icons.bd}
+>>>>>>> main
   ]);
 
   useEffect(() => {
@@ -125,7 +142,11 @@ const BottomBarNav = (props) => {
             <Tab.Screen 
               key={key}
               name={item.name}
+<<<<<<< HEAD
+              component={item.component} 
+=======
               component={RegistrationForm} 
+>>>>>>> main
               screenOptions={{
                 headerShown: false
               }}

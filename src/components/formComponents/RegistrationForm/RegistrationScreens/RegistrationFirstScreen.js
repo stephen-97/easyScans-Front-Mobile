@@ -1,4 +1,13 @@
 import React, {useState, useEffect, useRef} from "react";
+<<<<<<< HEAD
+import { View, StyleSheet} from "react-native";
+import Button from "../../../Button";
+import ButtonWithLogo from "../../../ButtonWithLogo";
+import InputText from "../../../InputText";
+import { Formik } from "formik";
+import { icons } from "../../../../constants";
+import {validate} from "../../../../redux/redux";
+=======
 import InputText from "../../../InputText";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated} from "react-native";
 import { correctEmail, correctUsername, correctPassword, samesPasswords} from "../../../../utility/formVerificationFunctions";
@@ -7,10 +16,43 @@ import Spinner from "../../../../utility/Spinner";
 import Button from "../../../Button";
 import * as ImagePicker from "expo-image-picker";
 import { icons } from "../../../../constants";
+>>>>>>> main
 
 
 const RegistrationFirstScreen = (props) => {
 
+<<<<<<< HEAD
+    const formVerification = (values) => {
+      props.setLoginRequestResponse(values);
+    }
+    const test = () => {
+        store.dispatch(validate("test"))
+    }
+
+    return(
+          <View style={styles.container}>
+            <Formik
+              initialValues={{'emailOrUsername': '', 'password': ''}}
+              onSubmit={values => formVerification(values)}
+            >
+              {({ handleChange,  handleSubmit, values }) => (
+              <>
+                <InputText onChangeText={handleChange('emailOrUsername')} title="Email" placeholder="Email " value={null} icon={icons.email}/>
+                <InputText onChangeText={handleChange('password')} title="password" password placeholder="Mot de passe " value={null} icon={icons.email}/>
+                <Button onPress={() => handleSubmit()} title="Connexion "/>
+
+              </>
+              )}
+              </Formik>
+            <ButtonWithLogo
+              onPress={() => props.handleChangePage('formulaire')} 
+              extraStyle={styles.extraStyleButton}  
+              extraStyleTitle={styles.extraStyleTitle} 
+              title="Connexion Gmail"
+              source={icons.googleLogo}
+            />
+          </View>
+=======
   const [submitValue, setSubmitValue] = useState(false);
   const [jsonResponse, setJsonResponse] = useState(null);
 
@@ -132,10 +174,13 @@ const RegistrationFirstScreen = (props) => {
             }
           </View>
         </Animated.View>
+>>>>>>> main
       )
 };
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
+=======
   avatarField:{
     backgroundColor: "white",
     width: "100%",
@@ -149,10 +194,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     justifyContent: "center",
   },
+>>>>>>> main
   container:{
     minHeight: 100, 
     justifyContent: "center",
   },
+<<<<<<< HEAD
+  extraStyleButton: {
+    backgroundColor: '#3b3a3a',
+  },
+  extraStyleTitle: {
+    color: 'white'
+  }
+=======
   avatarText : {
     justifyContent: "center",
     fontWeight:"500",
@@ -169,6 +223,7 @@ const styles = StyleSheet.create({
 
   }
   
+>>>>>>> main
 });
 
 export default RegistrationFirstScreen;
