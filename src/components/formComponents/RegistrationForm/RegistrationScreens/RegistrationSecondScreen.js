@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import InputText from "../../../InputText";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated} from "react-native";
-import { correctEmail, correctUsername, correctPassword, samesPasswords, correctAvatarSize} from "../../../../utility/formVerificationFunctions";
+import { correctEmail, correctUsername, correctPassword, samesPasswords, correctAvatarSize} from "../../../../utility/formsVerifications/formVerificationFunctions";
 import Form, { Field } from 'rc-field-form';
 import Button from "../../../Button";
 import * as ImagePicker from "expo-image-picker";

@@ -1,15 +1,14 @@
 import React, {useState, useEffect, useRef} from "react";
-import { View,  StyleSheet, Text, TouchableOpacity, FlatList,Animated } from "react-native";
-import InputText from "../../InputText";
-import { icons, colors } from "../../../constants";
-import Button from "../../Button";
-import { correctEmail, correctPassword, correctUsername, samesPasswords } from "../../../utility/formVerificationFunctions";
+import { View,  StyleSheet, Animated } from "react-native";
+import {connect, useDispatch } from "react-redux";
+import {setUser} from "../../../redux/redux"
+import jwt_decode from 'jwt-decode';
+
 import RegistrationFirstScreen from "./RegistrationScreens/RegistrationFirstScreen";
-import { Formik } from "formik";
-import Form, { Field } from 'rc-field-form';
 import RegistrationSecondScreen from "./RegistrationScreens/RegistrationSecondScreen";
 import RegistrationLoadingScreen from "./RegistrationScreens/RegistrationLoadingScreen";
 import { SERVER } from "../../../../config";
+
 
 const RegistrationForm = (props) => {
   
@@ -25,6 +24,7 @@ const RegistrationForm = (props) => {
 
     const dataTagsList = ["Shonen", "Seinen", "Shojo", "catégorie 4", "catégorie 5", "catégorie 6", "catégorie 7", "catégorie 8"];
     const [dataTags, setDataTags] = useState([]);
+
 
 
     const [requestResponse, setRequestResponse] = useState({status: null, message: null});
@@ -47,28 +47,30 @@ const RegistrationForm = (props) => {
         });
     };
 
+    const dispatch = useDispatch();
 
     const SignInRequest = async (values) => {
-      SetPage('loading')
-      return fetch(`http://${SERVER}/API/signing`, {
-        method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values)
-      })
-        .then((response) => response.json())
-        .then((jsonData) => { 
-          if(jsonData.status !== 200){
-            SetPage('choix')
-            alert(jsonData.msg)
-          } else {
-            setRequestResponse(jsonData)
-          }
-      });
+        return fetch(`http://${SERVER}/API/signing`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values)
+        })
+            .then((response) => response.json())
+            .then((jsonData) => {
+                if(jsonData.status !== 200){
+                    SetPage('choix')
+                    alert(jsonData.msg)
+                } else {
+                    setRequestResponse(jsonData)
+                    dispatch(setUser(jwt_decode(jsonData.jwt)))
+                }
+            });
     };
-    
+
+
     
     return (
       <View style={{justifyContent: "center", backgroundColor: "#f66c6c", flex: 1,}}>
@@ -102,8 +104,13 @@ const RegistrationForm = (props) => {
       </View>
     );
   };
-  
-  export default RegistrationForm;
+
+  const mapStateToProps = state => {
+      return {
+          user: state.user
+      }
+  }
+  export default connect(mapStateToProps )(RegistrationForm);
   
   const styles = StyleSheet.create({
     navBar:{

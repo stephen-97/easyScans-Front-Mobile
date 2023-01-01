@@ -5,16 +5,16 @@ import ButtonWithLogo from "../../../ButtonWithLogo";
 import InputText from "../../../InputText";
 import { Formik } from "formik";
 import { icons } from "../../../../constants";
+import {validate} from "../../../../redux/redux";
 
 
 const RegistrationFirstScreen = (props) => {
 
-    const handleSubmit = () => {
-      props.setRequestResponse({emailOrUsername: emailOrUsername, password: password})
-
-    }
     const formVerification = (values) => {
       props.setLoginRequestResponse(values);
+    }
+    const test = () => {
+        store.dispatch(validate("test"))
     }
 
     return(
