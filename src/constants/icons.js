@@ -8,7 +8,8 @@ const googleLogo = require("../assets/icons/googleLogo.png");
 const email = require("../assets/icons/email.png");
 const password = require("../assets/icons/password.png");
 const userForm = require("../assets/icons/userForm.png");
-
+const plusIcon = require("../assets/icons/plusIcon.png");
+const arrowHeadUp = require("../assets/icons/arrowHeadUp.png");
 
 export default {
   
@@ -29,6 +30,9 @@ export default {
 
   email,
   password,
-  userForm
-  
+  userForm,
+
+  //arithmetic icons
+  plusIcon,
+  arrowHeadUp,
 };

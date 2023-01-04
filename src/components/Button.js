@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { TextInput, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import colors from "../constants/colors";
+import propTypes from 'prop-types';
 
 const Button = (props) => {
     const [onFocus, setOnFocus] = useState(false);
@@ -13,6 +14,13 @@ const Button = (props) => {
             <Text style={[styles.title, props.extraStyleText]}>{props.title}</Text>
         </TouchableOpacity>
     )
+}
+
+Button.propTypes = {
+    extraStyle: propTypes.object,
+    extraStyleText: propTypes.object,
+    title: propTypes.string.isRequired,
+    onPress: propTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({

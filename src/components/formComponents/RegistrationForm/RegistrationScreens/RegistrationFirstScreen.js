@@ -6,6 +6,7 @@ import InputText from "../../../InputText";
 import { Formik } from "formik";
 import { icons } from "../../../../constants";
 import {validate} from "../../../../redux/redux";
+import colors from "../../../../constants/colors";
 
 
 const RegistrationFirstScreen = (props) => {
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   extraStyleButton: {
-    backgroundColor: '#3b3a3a',
+    backgroundColor: colors.darkButton,
   },
   extraStyleTitle: {
     color: 'white'

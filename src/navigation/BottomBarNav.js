@@ -9,6 +9,7 @@ import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
 import { icons, colors } from "../constants";
 import Button from "../components/Button";
 import { Formik } from "formik";
+import AccountNavigation from "./AccountNavigation";
 
 const BottomBarNav = (props) => {
   const Tab = createBottomTabNavigator();
@@ -43,11 +44,9 @@ const BottomBarNav = (props) => {
 
 
 
-
-
   const [pagesInfo, setPagesInfo] = useState([
     {name: "Home", component: Test1, icon: icons.home},
-    {name: "Login", component: AccountScreen, icon: icons.user},
+    {name: "Login", component: AccountNavigation, icon: icons.user},
     {name: "Books", component: RegistrationForm, icon: icons.bd}
   ]);
 
