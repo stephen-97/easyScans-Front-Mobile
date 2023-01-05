@@ -16,7 +16,9 @@ const AccountNavigation = (props) => {
           }}
       >
         <Stack.Screen name={"AccountScreen"} component={AccountScreen}/>
-        <Stack.Screen name={"AccountChangeEmailScreen"} component={AccountChangeEmailScreen}/>
+        <Stack.Group screenOptions={{ presentation: 'modal' }}>
+          <Stack.Screen name={"AccountChangeEmailScreen"} component={AccountChangeEmailScreen}/>
+        </Stack.Group>
       </Stack.Navigator>
   );
 };

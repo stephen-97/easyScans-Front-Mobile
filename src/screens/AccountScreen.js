@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import colors from "../constants/colors";
 import AccountField from "../components/accountScreenComponents/AccountField";
 import AccountFieldToggleButton from "../components/accountScreenComponents/AccountFieldToggleButton";
+import propTypes from "prop-types";
 
 const AccountScreen = (props) => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -27,9 +28,9 @@ const AccountScreen = (props) => {
               <Image style={styles.avatar} source={props.user && props.user.avatar ? {uri: url.avatarUrl(props.user.avatar)} : icons.avatar}/>
             </View>
           </View>
-          <AccountField user={props.user} legend={"Utilisateur"} test={() => console.log(props)}/>
-          <AccountField user={props.user} legend={"Email"}/>
-          <AccountField user={props.user} legend={"Date de création"}/>
+          <AccountField legend={"Utilisateur"} />
+          <AccountField legend={"Email"}/>
+          <AccountField legend={"Date de création"}/>
           <AccountFieldToggleButton legend={"Lecture verticale ?"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
           <AccountFieldToggleButton legend={"Lecture verticale ?"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
           <Button
@@ -53,6 +54,12 @@ const mapStateToProps = (state) => {
     user: state.user,
   }
 }
+
+AccountScreen.propTypes = {
+  user: propTypes.object,
+  navigation: propTypes.object,
+}
+
 
 export default connect(mapStateToProps)(AccountScreen);
 

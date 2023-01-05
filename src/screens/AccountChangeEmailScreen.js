@@ -1,17 +1,23 @@
 import React, {useState, useEffect, useRef} from "react";
-import { StyleSheet, Image, Text, TouchableOpacity} from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity} from "react-native";
 import { icons } from "../constants"
 import propTypes from "prop-types";
 import {connect} from "react-redux";
+import ChangeEmailForm from "../components/formComponents/AccountManagerForm/ChangeEmailForm";
+import {useNavigation} from "@react-navigation/native";
+import colors from "../constants/colors";
 
 const AccountChangeEmailScreen = (props) => {
 
+  const navigation = useNavigation();
+
   return (
-      <TouchableOpacity style={styles.line}>
-        <Text style={styles.legend}>{props.legend}</Text>
-        <Text style={styles.text}>{props.user.length===0 ? props.user.createdAd : 'aaaaaaaaaaaa'}</Text>
-        <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>
-      </TouchableOpacity>
+      <View>
+        <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
+          <Text style={styles.closeButtonText}>Fermer</Text>
+        </TouchableOpacity>
+        <ChangeEmailForm />
+      </View>
   );
 };
 
@@ -29,31 +35,15 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(AccountChangeEmailScreen);
 
 const styles = StyleSheet.create({
-  line: {
-    borderBottomWidth: 1,
+  closeButton:{
     width: "100%",
-    borderColor: 'rgba(0,0,0,0.3)',
-    height: 55,
-    justifyContent: 'center'
+    height: "12.5%",
+    backgroundColor: colors.darkButton,
+    justifyContent: "center",
+    alignItems: "center"
   },
-  legend:{
-    fontSize: 16,
-    position: 'absolute',
-    fontWeight: 'bold',
-    left: 20
+  closeButtonText:{
+    fontSize: 25,
+    color: "#9f9f9f",
   },
-  text: {
-    marginVertical: 10,
-    fontSize: 16,
-    color: 'gray',
-    position: 'absolute',
-    fontWeight: 'bold',
-    right: 50,
-  },
-  fieldIcon: {
-    position: 'absolute',
-    right: 10,
-    height: 25,
-    width: 25
-  }
 });
