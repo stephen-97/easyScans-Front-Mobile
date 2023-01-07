@@ -4,6 +4,8 @@ export const samesPasswords = (firstPassword, secondPassword) => {
     return firstPassword === secondPassword;
 }
 
+
+
 export const correctPassword = (password) => {
     return password.length >= 8 && /\d/.test(password) ;
 }

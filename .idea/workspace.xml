@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/AccountDeleteForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeEmailScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountDeleteFormScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/Line.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AccountChangeEmailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,18 +40,20 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/loiola/Bureau/Projet perso/Docker EasyScan&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/loiola/Bureau/Entreprise/AirFlow&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/screens/accountScreens" />
       <recent name="$PROJECT_DIR$/src/utility/formsVerifications" />
     </key>
   </component>
@@ -56,7 +69,14 @@
       <workItem from="1668776252905" duration="989000" />
       <workItem from="1669801052430" duration="139000" />
       <workItem from="1670597963532" duration="5719000" />
-      <workItem from="1672441791151" duration="28021000" />
+      <workItem from="1672441791151" duration="26505000" />
+      <workItem from="1672590769092" duration="6565000" />
+      <workItem from="1672598951869" duration="4953000" />
+      <workItem from="1672648674548" duration="44000" />
+      <workItem from="1672648968770" duration="145000" />
+      <workItem from="1672649125173" duration="1834000" />
+      <workItem from="1672700482150" duration="1855000" />
+      <workItem from="1672779131178" duration="31306000" />
     </task>
     <servers />
   </component>
@@ -68,19 +88,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="formulaire_login" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>

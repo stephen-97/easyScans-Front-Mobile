@@ -8,7 +8,7 @@ const InputText = (props) => {
 
     return(
         <View style={styles.container}>
-            <Image style={styles.icon} source={icons.home} />
+            {props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
             <TextInput
                 style={!onFocus ? styles.input : [styles.input, {borderColor: colors.inputBorderColorFocus}]}
                 onFocus={() => setOnFocus(true)}
@@ -16,7 +16,7 @@ const InputText = (props) => {
                 onChangeText={props.onChangeText}
                 placeholder={props.placeholder}
                 placeholderTextColor={colors.inputPlaceholderColor}
-                secureTextEntry={props.password ? true : false }
+                secureTextEntry={!!props.password}
             />
         </View>
     )
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         padding: "5%",
         paddingRight: "20%",
         borderRadius: 15,
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: colors.inputColor,
         fontSize: 20,
     },
