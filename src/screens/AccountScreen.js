@@ -6,33 +6,45 @@ import { url} from "../utility/url/url";
 import Button from "../components/Button";
 import colors from "../constants/colors";
 import AccountField from "../components/accountScreenComponents/AccountField";
+import AccountFieldAvatar from "../components/accountScreenComponents/AccountFieldAvatar";
 import AccountFieldToggleButton from "../components/accountScreenComponents/AccountFieldToggleButton";
+import {useNavigation} from "@react-navigation/native";
 import propTypes from "prop-types";
+import Line from "../utility/Line";
 
 const AccountScreen = (props) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
+  const navigation = useNavigation();
 
     return (
       <ScrollView style={{backgroundColor: "#f66c6c", flex: 1,}} contentContainerStyle={{justifyContent: "center"}}>
-        {console.log(props)}
         <View style={styles.inputsView}>
-          <View style={styles.avatarBlock}>
-            <View style={{borderRadius: 500}}>
-              <TouchableOpacity
-                  style={styles.changeAvatarButtonContainer}
-              >
-                <Image style={styles.changeAvatarButton} source={icons.plusIcon}/>
-              </TouchableOpacity>
-              <Image style={styles.avatar} source={props.user && props.user.avatar ? {uri: url.avatarUrl(props.user.avatar)} : icons.avatar}/>
-            </View>
+          <AccountFieldAvatar/>
+
+          <View style={styles.fieldsContainer}>
+            <Text style={styles.fieldsContainerLegend}>Compte</Text>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Utilisateur"} touchable/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Changer Email"} touchable/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Changer Mot de passe"} touchable/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Date de création"} />
+            <Line color={'rgba(0,0,0,0.3)'}/>
           </View>
-          <AccountField legend={"Utilisateur"} />
-          <AccountField legend={"Email"}/>
-          <AccountField legend={"Date de création"}/>
-          <AccountFieldToggleButton legend={"Lecture verticale ?"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
-          <AccountFieldToggleButton legend={"Lecture verticale ?"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+
+          <View style={styles.fieldsContainer}>
+            <Text style={styles.fieldsContainerLegend}>Préférence</Text>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountFieldToggleButton legend={"Lecture verticale "} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountFieldToggleButton legend={"Masquer contenu sensible"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+          </View>
+
           <Button
               title="Déconnexion"
               onPress={() => null}
@@ -40,7 +52,7 @@ const AccountScreen = (props) => {
           />
           <Button
               title="Supprimer compte"
-              onPress={() => console.log(colors.darkButton)}
+              onPress={() => navigation.push("AccountDeleteFormScreen")}
               extraStyle={styles.buttonDelete}
               extraStyleText={styles.buttonDeleteText}
           />
@@ -80,6 +92,16 @@ const styles = StyleSheet.create({
       marginTop: 150,
       height: '100%'
     },
+    fieldsContainer: {
+      marginBottom: 40,
+    },
+    fieldsContainerLegend: {
+      fontSize: 22,
+      marginLeft: 20,
+      color: "gray",
+      marginBottom: 10,
+      fontWeight: "500"
+    },
     avatar: {
       height: 220,
       width: 220,
@@ -93,13 +115,7 @@ const styles = StyleSheet.create({
       height: 55,
       justifyContent: 'center'
     },
-    avatarBlock:{
-      borderBottomWidth: 1,
-      width: "100%",
-      alignItems: 'center',
-      borderColor: 'rgba(0,0,0,0.3)',
-      paddingVertical: 15,
-    },
+
     legend:{
       fontSize: 16,
       position: 'absolute',
@@ -129,23 +145,6 @@ const styles = StyleSheet.create({
     },
     buttonDeleteText: {
       color: 'white'
-    },
-    changeAvatarButtonContainer: {
-      backgroundColor: '#d0d0d0',
-      borderRadius: 500,
-      position: 'absolute',
-      zIndex: 1,
-      top: 20,
-      mozBorderRadius: 10,
-      right: 20,
-      borderColor: '#838383',
-      borderWidth: 1
-    },
-    changeAvatarButton: {
-      padding: 10,
-      borderRadius: 500,
-      height: 30,
-      width: 30,
     },
     fieldIcon: {
       position: 'absolute',

@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/AccountDeleteForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeEmailScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountDeleteFormScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/Line.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AccountChangeEmailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountChangeEmailScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AccountChangeEmailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/formsVerifications/formVerificationFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/formsVerifications/formVerificationFunctions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +53,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/screens/accountScreens" />
       <recent name="$PROJECT_DIR$/src/utility/formsVerifications" />
     </key>
   </component>
@@ -71,7 +76,7 @@
       <workItem from="1672648968770" duration="145000" />
       <workItem from="1672649125173" duration="1834000" />
       <workItem from="1672700482150" duration="1855000" />
-      <workItem from="1672779131178" duration="20225000" />
+      <workItem from="1672779131178" duration="31306000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ import AccountField from "./AccountField";
 const AccountFieldToggleButton = (props) => {
 
   return (
-      <TouchableOpacity style={styles.line}>
+      <TouchableOpacity style={styles.container}>
         <Text style={styles.legend}>{props.legend}</Text>
         <View style={styles.text}>
           <Switch
@@ -33,10 +33,8 @@ AccountFieldToggleButton.propTypes = {
 export default AccountFieldToggleButton;
 
 const styles = StyleSheet.create({
-  line: {
-    borderBottomWidth: 1,
+  container: {
     width: "100%",
-    borderColor: 'rgba(0,0,0,0.3)',
     height: 55,
     justifyContent: 'center'
   },

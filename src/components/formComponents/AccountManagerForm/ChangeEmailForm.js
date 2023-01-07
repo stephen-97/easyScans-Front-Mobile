@@ -50,7 +50,7 @@ const ChangeEmailForm = (props) => {
                     placeholder="Mot de passe"
                     password
                 />
-                <Button title={"Soumettre"} onPress={() => handleSubmit()}/>
+                <Button title={"Changer adresse mail"} onPress={() => handleSubmit()}/>
               </>
           )}
         </Formik>

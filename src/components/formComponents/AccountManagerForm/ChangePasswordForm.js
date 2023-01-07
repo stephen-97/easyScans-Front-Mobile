@@ -12,11 +12,12 @@ const ChangeEmailForm = (props) => {
 
 
   const formVerification = (values) => {
+    console.log(values)
     switch (values.newPassword === values.confirmNewPassword) {
       case true:
         break;
       case false:
-        alert("Les informations ne sont pas similaires")
+        alert("Les mots de passes ne sont pas similaires")
         break;
       default:
         break;
@@ -33,12 +34,12 @@ const ChangeEmailForm = (props) => {
               <>
                 <View style={styles.containerCurrentEmail}>
                   <InputText
-                      onChangeText={handleChange('email')}
+                      onChangeText={handleChange('newPassword')}
                       title="Nouveau mot de passe"
                       placeholder="Nouveau mot de passe"
                   />
                   <InputText
-                      onChangeText={handleChange('confirmEmail')}
+                      onChangeText={handleChange('confirmNewPassword')}
                       title="Nouveau mot de passe"
                       placeholder="Nouveau mot de passe"
                   />
@@ -49,7 +50,7 @@ const ChangeEmailForm = (props) => {
                     placeholder="Mot de passe actuel"
                     password
                 />
-                <Button title={"Soumettre"} onPress={() => handleSubmit()}/>
+                <Button title={"Changer mot de passe"} onPress={() => handleSubmit()}/>
               </>
           )}
         </Formik>

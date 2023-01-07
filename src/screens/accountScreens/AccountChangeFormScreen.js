@@ -1,13 +1,15 @@
 import React, {useState, useEffect, useRef} from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity} from "react-native";
-import { icons } from "../constants"
+import { icons } from "../../constants"
 import propTypes from "prop-types";
 import {connect} from "react-redux";
-import ChangeEmailForm from "../components/formComponents/AccountManagerForm/ChangeEmailForm";
+import ChangeEmailForm from "../../components/formComponents/AccountManagerForm/ChangeEmailForm";
 import {useNavigation} from "@react-navigation/native";
-import colors from "../constants/colors";
+import colors from "../../constants/colors";
+import ChangePasswordForm from "../../components/formComponents/AccountManagerForm/ChangePasswordForm";
+import changeEmailForm from "../../components/formComponents/AccountManagerForm/ChangeEmailForm";
 
-const AccountChangeEmailScreen = (props) => {
+const AccountChangeFormScreen = (props) => {
 
   const navigation = useNavigation();
 
@@ -16,14 +18,17 @@ const AccountChangeEmailScreen = (props) => {
         <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
           <Text style={styles.closeButtonText}>Fermer</Text>
         </TouchableOpacity>
-        <ChangeEmailForm />
+        {{
+          "Changer Email": <ChangeEmailForm/>,
+          "Changer Mot de passe": <ChangePasswordForm/>,
+        }[props.route.params.legend]}
       </View>
   );
 };
 
-AccountChangeEmailScreen.propTypes = {
+AccountChangeFormScreen.propTypes = {
   user: propTypes.object,
-  legend: propTypes.string.isRequired,
+  route: propTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => {
@@ -32,7 +37,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AccountChangeEmailScreen);
+export default connect(mapStateToProps)(AccountChangeFormScreen);
 
 const styles = StyleSheet.create({
   closeButton:{

@@ -4,6 +4,8 @@ import { icons } from "../../constants";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import { useNavigation } from '@react-navigation/native';
+import ChangeEmailForm from "../formComponents/AccountManagerForm/ChangeEmailForm";
+import ChangePasswordForm from "../formComponents/AccountManagerForm/ChangePasswordForm";
 
 const AccountField = (props) => {
 
@@ -11,24 +13,23 @@ const AccountField = (props) => {
 
   const screenAccountNavigation = () => {
     switch (props.legend) {
-      case 'Utilisateur':
-        navigation.navigate("AccountChangeEmailScreen")
+      case 'Changer Email':
+        navigation.push("AccountChangeFormScreen", {legend: props.legend})
         break;
-      case 'Email':
-        navigation.navigate("AccountChangeEmailScreen")
-        break;
-      case 'Papayas':
-        navigation.navigate("AccountChangeEmailScreen")
+      case 'Changer Mot de passe':
+        navigation.push("AccountChangeFormScreen", {legend: props.legend})
         break;
       default:
         break;
     }
   }
   return (
-      <TouchableOpacity style={styles.line} onPress={() => screenAccountNavigation()}>
+      <TouchableOpacity style={styles.container} onPress={() => screenAccountNavigation()}>
         <Text style={styles.legend}>{props.legend}</Text>
         <Text style={styles.text}>{props.user.length===0 ? props.user.createdAd : 'aaaaaaaaaaaa'}</Text>
-        <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>
+        {{
+          true: <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>,
+        }[props.touchable]}
       </TouchableOpacity>
   );
 };
@@ -36,6 +37,7 @@ const AccountField = (props) => {
 AccountField.propTypes = {
   user: propTypes.object,
   legend: propTypes.string.isRequired,
+  touchable: propTypes.bool,
 }
 
 const mapStateToProps = (state) => {
@@ -48,10 +50,8 @@ export default connect(mapStateToProps)(AccountField);
 
 
 const styles = StyleSheet.create({
-  line: {
-    borderBottomWidth: 1,
+  container: {
     width: "100%",
-    borderColor: 'rgba(0,0,0,0.3)',
     height: 55,
     justifyContent: 'center'
   },
