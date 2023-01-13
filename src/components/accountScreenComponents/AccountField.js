@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useRef} from "react";
-import { StyleSheet, Image, Text, TouchableOpacity} from "react-native";
+import { StyleSheet, Image, Text, TouchableOpacity, TouchableHighlight} from "react-native";
 import { icons } from "../../constants";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import { useNavigation } from '@react-navigation/native';
-import ChangeEmailForm from "../formComponents/AccountManagerForm/ChangeEmailForm";
-import ChangePasswordForm from "../formComponents/AccountManagerForm/ChangePasswordForm";
+import colors from "../../constants/colors";
 
 const AccountField = (props) => {
 
@@ -23,14 +22,38 @@ const AccountField = (props) => {
         break;
     }
   }
+
+  const rightParam = () => {
+    switch (props.parameter) {
+      case 'username':
+        return props.user.username
+      case 'email':
+        return props.user.email
+      case 'createdAd':
+        return props.user.createdAd
+      case 'password':
+        return ''
+      default:
+        break;
+    }
+  }
+
+
   return (
-      <TouchableOpacity style={styles.container} onPress={() => screenAccountNavigation()}>
-        <Text style={styles.legend}>{props.legend}</Text>
-        <Text style={styles.text}>{props.user.length===0 ? props.user.createdAd : 'aaaaaaaaaaaa'}</Text>
-        {{
-          true: <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>,
-        }[props.touchable]}
-      </TouchableOpacity>
+      <TouchableHighlight
+        style={styles.container}
+        activeOpacity={props.touchable ? 0.5 : 1}
+        underlayColor={props.touchable ? colors.darkButton : null}
+        onPress={() => screenAccountNavigation()}
+      >
+        <>
+          <Text style={styles.legend}>{props.legend}</Text>
+          <Text style={styles.text}>{Object.keys(props.user).length === 0 ?  'aaaaaaaaaaaa' : rightParam() }</Text>
+          {{
+            true: <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>,
+          }[props.touchable]}
+        </>
+      </TouchableHighlight>
   );
 };
 
@@ -38,6 +61,7 @@ AccountField.propTypes = {
   user: propTypes.object,
   legend: propTypes.string.isRequired,
   touchable: propTypes.bool,
+  parameter: propTypes.string,
 }
 
 const mapStateToProps = (state) => {

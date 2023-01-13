@@ -42,7 +42,7 @@ export default connect(mapStateToProps)(AccountChangeFormScreen);
 const styles = StyleSheet.create({
   closeButton:{
     width: "100%",
-    height: "12.5%",
+    height: 65,
     backgroundColor: colors.darkButton,
     justifyContent: "center",
     alignItems: "center"

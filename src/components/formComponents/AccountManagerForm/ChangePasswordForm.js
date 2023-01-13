@@ -7,17 +7,22 @@ import { useNavigation } from '@react-navigation/native';
 import InputText from "../../InputText";
 import Button from "../../Button";
 import {Formik} from "formik";
+import {correctPassword} from "../../../utility/formsVerifications/formVerificationFunctions";
+import {Request} from "../../../request/requestFunctions";
+import url from "../../../request/url";
 
-const ChangeEmailForm = (props) => {
+const ChangePasswordForm = (props) => {
 
 
   const formVerification = (values) => {
-    console.log(values)
-    switch (values.newPassword === values.confirmNewPassword) {
+
+    const correct = (values.newPassword === values.confirmNewPassword) && (correctPassword(values.newPassword) && correctPassword(values.confirmNewPassword))
+
+    switch (correct) {
       case true:
         break;
       case false:
-        alert("Les mots de passes ne sont pas similaires")
+        alert("Mot de passes non similaire ou non conformes")
         break;
       default:
         break;
@@ -58,7 +63,7 @@ const ChangeEmailForm = (props) => {
   );
 };
 
-ChangeEmailForm.propTypes = {
+ChangePasswordForm.propTypes = {
   user: propTypes.object,
 }
 
@@ -68,7 +73,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ChangeEmailForm);
+export default connect(mapStateToProps)(ChangePasswordForm);
 
 
 const styles = StyleSheet.create({

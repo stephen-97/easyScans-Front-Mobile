@@ -61,18 +61,27 @@ const BottomBarNav = (props) => {
             headerShown: false
         }}
         >
-          {pagesInfo.map((item, key) => {
-            return(
-            <Tab.Screen 
-              key={key}
-              name={item.name}
-              component={item.component} 
+          <Tab.Screen
+              name={"Home"}
+              component={Test1}
               screenOptions={{
                 headerShown: false
               }}
-            />
-          )
-        })}
+          />
+          <Tab.Screen
+              name="Login"
+              component={AccountNavigation}
+              screenOptions={{
+                headerShown: false
+              }}
+          />
+          <Tab.Screen
+              name="Books"
+              component={RegistrationForm}
+              screenOptions={{
+                headerShown: false
+              }}
+          />
       </Tab.Navigator>
     </NavigationContainer>
   );
