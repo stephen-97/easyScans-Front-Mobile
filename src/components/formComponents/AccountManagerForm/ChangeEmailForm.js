@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity} from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity, ActivityIndicator} from "react-native";
 import { icons } from "../../../constants";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
@@ -7,14 +7,38 @@ import { useNavigation } from '@react-navigation/native';
 import InputText from "../../InputText";
 import Button from "../../Button";
 import {Formik} from "formik";
+import {correctEmail} from "../../../utility/formsVerifications/formVerificationFunctions";
+import {Request} from "../../../request/requestFunctions";
+import url from "../../../request/url";
 
 const ChangeEmailForm = (props) => {
 
-
+  const [emailUpdated, setEmailUpdated] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const formVerification = (values) => {
-    switch (values.email === values.confirmEmail) {
+    //const correct = (valuesc.email === values.confirmEmail) && (correctEmail(values.email) && correctEmail(values.confirmEmail))
+
+    switch (true) {
       case true:
+        const bodyObject = {
+          'email' : values.email,
+          'emailConfirm' : values.confirmEmail,
+          'password' : values.password,
+        }
+        setLoading(true)
+        Request(url.changeEmail.method, url.changeEmail.endpoint, bodyObject, null)
+          .then(data => {
+            if(data.status === url.changeEmail.status) {
+              setEmailUpdated(true)
+            } else {
+              alert(data.body.msg)
+            }
+          })
+          .catch((err) => console.log(err))
+          .finally(() => {
+            setLoading(false);
+          });
         break;
       case false:
         alert("Les informations ne sont pas similaires")
@@ -54,6 +78,7 @@ const ChangeEmailForm = (props) => {
               </>
           )}
         </Formik>
+        {loading ? <ActivityIndicator style={styles.loadingIcon} size="large" color="#000000" /> : null}
       </View>
   );
 };
@@ -76,6 +101,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
   },
   containerCurrentEmail: {
-    marginVertical: 20
+    marginVertical: 20,
+  },
+  loadingContainer: {
+    backgroundColor: 'red',
+    height: 500,
+  },
+  loadingIcon: {
+    marginVertical: 30,
   }
 });

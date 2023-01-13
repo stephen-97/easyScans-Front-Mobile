@@ -26,13 +26,13 @@ const AccountScreen = (props) => {
           <View style={styles.fieldsContainer}>
             <Text style={styles.fieldsContainerLegend}>Compte</Text>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountField legend={"Utilisateur"} touchable/>
+            <AccountField legend={"Utilisateur"} parameter='username' touchable={false}/>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountField legend={"Changer Email"} touchable/>
+            <AccountField legend={"Date de création"} parameter='createdAd' touchable={false}/>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountField legend={"Changer Mot de passe"} touchable/>
+            <AccountField legend={"Changer Email"} parameter='email' touchable/>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountField legend={"Date de création"} />
+            <AccountField legend={"Changer Mot de passe"} parameter='password' touchable/>
             <Line color={'rgba(0,0,0,0.3)'}/>
           </View>
 
