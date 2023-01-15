@@ -1,8 +1,9 @@
 import {SERVER} from "../../config";
 
-const Request = (VERB, endpoint, objectJson, token) => {
+const Request = (METHOD, endpoint, objectJson, token) => {
+  console.log(METHOD)
   return fetch(`http://${SERVER}/${endpoint}`, {
-    method: 'PUT',
+    method: METHOD,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

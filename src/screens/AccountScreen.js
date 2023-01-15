@@ -18,10 +18,6 @@ import {userObjectStorage} from "../utility/security/encodeJwt";
 const AccountScreen = (props) => {
   const dispatch = useDispatch();
 
-
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
   const [verticalReading, setVerticalReading] = useState(props.user ? props.user.verticalReading : null);
   const [shockingContent, setShockingContent] = useState(props.user ? props.user.shockingContent : null);
 
@@ -33,20 +29,16 @@ const AccountScreen = (props) => {
     }
     Request(url.changeVerticalReading.method, url.changeVerticalReading.endpoint, JSON.stringify(objectBody), props.user.token)
         .then((json) => {
-          console.log("then response : ")
           console.log(json)
-          if(json.status === 200) {
+          if(json.status === url.changeVerticalReading.status) {
             dispatch(setUser(userObjectStorage(json.body.jwt)))
+          } else {
+            setVerticalReading(previousState => !previousState)
           }
         })
         .catch((err) => {
+          setVerticalReading(previousState => !previousState)
           console.log(err)
-        })
-        .finally(() => {
-          console.log(" ")
-          console.log("finally : ")
-          console.log(props.user.verticalReading)
-          //setVerticalReading(props.user.verticalReading)
         })
   }
 
@@ -57,15 +49,16 @@ const AccountScreen = (props) => {
     }
     Request(url.changeShockingContent.method, url.changeShockingContent.endpoint, JSON.stringify(objectBody), props.user.token)
         .then((json) => {
-          if(json.status === 200) {
+          console.log(json)
+          if(json.status === url.changeShockingContent.status) {
             dispatch(setUser(userObjectStorage(json.body.jwt)))
+          } else {
+            setShockingContent(previousState => !previousState)
           }
         })
         .catch((err) => {
+          setShockingContent(previousState => !previousState)
           console.log(err)
-        })
-        .finally(() => {
-          setShockingContent(props.user.verticalReading)
         })
   }
   const navigation = useNavigation();

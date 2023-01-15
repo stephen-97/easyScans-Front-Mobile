@@ -20,14 +20,14 @@ const changeAvatar = {
 
 const changeVerticalReading = {
   endpoint: "API/changeVerticalReading",
-  method: 'POST',
-  status: 201
+  method: 'PUT',
+  status: 200
 }
 
 const changeShockingContent = {
   endpoint: "API/changeShockingContent",
-  method: 'POST',
-  status: 201
+  method: 'PUT',
+  status: 200
 }
 export default {
   //PUT

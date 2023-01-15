@@ -8,22 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/request/requestFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/request/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/security/encodeJwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/security/encodeJwt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/url/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/constants/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +75,7 @@
       <workItem from="1673611741441" duration="19558000" />
       <workItem from="1673655416578" duration="13827000" />
       <workItem from="1673728286974" duration="6687000" />
-      <workItem from="1673805894503" duration="1567000" />
+      <workItem from="1673805894503" duration="4073000" />
     </task>
     <servers />
   </component>
