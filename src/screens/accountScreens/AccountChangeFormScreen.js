@@ -18,10 +18,12 @@ const AccountChangeFormScreen = (props) => {
         <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
           <Text style={styles.closeButtonText}>Fermer</Text>
         </TouchableOpacity>
-        {{
-          "Changer Email": <ChangeEmailForm/>,
-          "Changer Mot de passe": <ChangePasswordForm/>,
-        }[props.route.params.legend]}
+        <View style={{height: '100%'}}>
+          {{
+            "Changer Email": <ChangeEmailForm/>,
+            "Changer Mot de passe": <ChangePasswordForm/>,
+          }[props.route.params.legend]}
+        </View>
       </View>
   );
 };

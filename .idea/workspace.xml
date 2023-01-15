@@ -3,18 +3,27 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BnAndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldToggleButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/requestFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/security/encodeJwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/security/encodeJwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/url/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/constants/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,22 +41,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/loiola/Bureau/Projet perso/EasyScan Project/easyScans",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/loiola/Bureau/Projet perso/EasyScan Project/easyScans&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/screens/accountScreens" />
@@ -75,7 +84,10 @@
       <workItem from="1672700482150" duration="1855000" />
       <workItem from="1672779131178" duration="37299000" />
       <workItem from="1673474011340" duration="8248000" />
-      <workItem from="1673611741441" duration="11032000" />
+      <workItem from="1673611741441" duration="19558000" />
+      <workItem from="1673655416578" duration="13827000" />
+      <workItem from="1673728286974" duration="6687000" />
+      <workItem from="1673805894503" duration="1567000" />
     </task>
     <servers />
   </component>

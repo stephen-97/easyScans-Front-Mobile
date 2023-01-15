@@ -12,10 +12,11 @@ import colors from "../../../../constants/colors";
 const RegistrationFirstScreen = (props) => {
 
     const formVerification = (values) => {
-      props.setLoginRequestResponse(values);
-    }
-    const test = () => {
-        store.dispatch(validate("test"))
+      const object = {
+        'emailOrUsername': values.emailOrUsername.toLowerCase(),
+        'password': values.password
+      }
+      props.setLoginRequestResponse(object);
     }
 
     return(

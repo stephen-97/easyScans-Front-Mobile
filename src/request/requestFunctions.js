@@ -1,12 +1,14 @@
 import {SERVER} from "../../config";
 
-const Request = (VERB, endpoint, bodyObject, authorization) => {
-  return fetch(`http://${SERVER}/API/API_2`, {
-    method: 'POST',
+const Request = (VERB, endpoint, objectJson, token) => {
+  return fetch(`http://${SERVER}/${endpoint}`, {
+    method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      authorization: token,
     },
+    body: objectJson
   })
    .then(response => response.json().then(data => ({status: response.status, body: data})))
 }

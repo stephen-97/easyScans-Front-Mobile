@@ -17,9 +17,9 @@ const ChangeEmailForm = (props) => {
   const [loading, setLoading] = useState(false);
 
   const formVerification = (values) => {
-    //const correct = (valuesc.email === values.confirmEmail) && (correctEmail(values.email) && correctEmail(values.confirmEmail))
+    //const correct = (values.email === values.confirmEmail) && (correctEmail(values.email) && correctEmail(values.confirmEmail))
 
-    switch (true) {
+    switch ((values.email === values.confirmEmail) && (correctEmail(values.email) && correctEmail(values.confirmEmail))) {
       case true:
         const bodyObject = {
           'email' : values.email,

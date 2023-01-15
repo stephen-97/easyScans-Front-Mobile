@@ -3,6 +3,7 @@ import { View,  StyleSheet, Animated } from "react-native";
 import {connect, useDispatch } from "react-redux";
 import {setUser} from "../../../redux/redux"
 import jwt_decode from 'jwt-decode';
+import {userObjectStorage} from "../../../utility/security/encodeJwt";
 
 import RegistrationFirstScreen from "./RegistrationScreens/RegistrationFirstScreen";
 import RegistrationSecondScreen from "./RegistrationScreens/RegistrationSecondScreen";
@@ -65,7 +66,7 @@ const RegistrationForm = (props) => {
                     alert(jsonData.msg)
                 } else {
                     setRequestResponse(jsonData)
-                    dispatch(setUser(jwt_decode(jsonData.jwt)))
+                    dispatch(setUser(userObjectStorage(jsonData.jwt)))
                 }
             });
     };

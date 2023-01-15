@@ -31,7 +31,7 @@ const AccountField = (props) => {
         return props.user.email
       case 'createdAd':
         return props.user.createdAd
-      case 'password':
+      case 'noValue':
         return ''
       default:
         break;
@@ -43,7 +43,7 @@ const AccountField = (props) => {
       <TouchableHighlight
         style={styles.container}
         activeOpacity={props.touchable ? 0.5 : 1}
-        underlayColor={props.touchable ? colors.darkButton : null}
+        underlayColor={props.touchable ? colors.lightGray : null}
         onPress={() => screenAccountNavigation()}
       >
         <>
@@ -80,15 +80,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   legend:{
-    fontSize: 16,
+    fontSize: 14,
     position: 'absolute',
     fontWeight: 'bold',
     left: 20
   },
   text: {
     marginVertical: 10,
-    fontSize: 16,
-    color: 'gray',
+    fontSize: 13,
+    color: '#535353',
     position: 'absolute',
     fontWeight: 'bold',
     right: 50,

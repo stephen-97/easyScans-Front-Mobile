@@ -1,21 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 import {StyleSheet, Image, TouchableOpacity, View} from "react-native";
 import { icons } from "../../constants";
 import propTypes from "prop-types";
-import {url} from "../../utility/url/url";
-import {connect} from "react-redux";
+import url from '../../request/url'
+import {constants} from "../../utility/constants/constants";
+
+import {Request} from "../../request/requestFunctions";
+import {connect, useDispatch} from "react-redux";
+import * as ImagePicker from "expo-image-picker";
+import {userObjectStorage} from "../../utility/security/encodeJwt";
+import {setUser} from "../../redux/redux";
+
 
 const AccountFieldAvatar = (props) => {
+
+  const dispatch = useDispatch();
+
+  const chooseAvatar = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      base64: true,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      const objectBody = {
+        'avatar': result.base64
+      }
+      const size = new Blob(result.base64).size
+      Request(url.changeAvatar.method, url.changeAvatar.endpoint, JSON.stringify(objectBody), props.user.token)
+          .then((json) => {
+            if(json.status === 200)  dispatch(setUser(userObjectStorage(json.body.jwt)))
+          })
+          .catch((err) => console.log(err))
+    }
+  };
+
 
   return (
       <View style={styles.avatarBlock}>
         <View style={{borderRadius: 500}}>
           <TouchableOpacity
               style={styles.changeAvatarButtonContainer}
+              onPress={() => chooseAvatar()}
           >
             <Image style={styles.changeAvatarButton} source={icons.plusIcon}/>
           </TouchableOpacity>
-          <Image style={styles.avatar} source={props.user && props.user.avatar ? {uri: url.avatarUrl(props.user.avatar)} : icons.avatar}/>
+          <Image style={styles.avatar} source={props.user && props.user.avatar ? {uri: constants.avatarUrl(props.user.avatar)} : icons.avatar}/>
         </View>
       </View>
   );

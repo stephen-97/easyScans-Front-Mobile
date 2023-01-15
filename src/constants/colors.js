@@ -5,4 +5,6 @@ export default {
 
     submitButton: "#c15c6c",
     darkButton: '#3b3a3a',
+
+    lightGray: "#e2e2e2",
 }
