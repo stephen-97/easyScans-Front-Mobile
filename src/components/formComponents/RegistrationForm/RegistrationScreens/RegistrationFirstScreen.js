@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import { View, StyleSheet} from "react-native";
+import { View, StyleSheet, Text} from "react-native";
 import Button from "../../../Button";
 import ButtonWithLogo from "../../../ButtonWithLogo";
 import InputText from "../../../InputText";
@@ -7,7 +7,7 @@ import { Formik } from "formik";
 import { icons } from "../../../../constants";
 import {validate} from "../../../../redux/redux";
 import colors from "../../../../constants/colors";
-
+import propTypes from "prop-types";
 
 const RegistrationFirstScreen = (props) => {
 
@@ -34,6 +34,7 @@ const RegistrationFirstScreen = (props) => {
               </>
               )}
               </Formik>
+            <Text>Mot de passe oublié ? <Text onPress={() => alert("HEEEEY")}>Cliquez ici</Text> </Text>
             <ButtonWithLogo
               onPress={() => props.handleChangePage('formulaire')} 
               extraStyle={styles.extraStyleButton}  
@@ -44,6 +45,11 @@ const RegistrationFirstScreen = (props) => {
           </View>
       )
 };
+
+RegistrationFirstScreen.propTypes = {
+  handleChangePage: propTypes.func,
+  setLoginRequestResponse: propTypes.func,
+}
 
 const styles = StyleSheet.create({
   container:{

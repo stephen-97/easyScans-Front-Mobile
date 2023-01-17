@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import RegistrationForm from "../components/formComponents/RegistrationForm/RegistrationForm";
-import AccountScreen from "../screens/AccountScreen";
+import SignNavigation from "./SignNavigation";
 import InputText from "../components/InputText";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomAppearanceBarNav from "./BottomBarAppearanceNav";
@@ -10,6 +10,7 @@ import { icons, colors } from "../constants";
 import Button from "../components/Button";
 import { Formik } from "formik";
 import AccountNavigation from "./AccountNavigation";
+import LoginScreen from "../screens/SignScreens/SignInScreen";
 
 const BottomBarNav = (props) => {
   const Tab = createBottomTabNavigator();
@@ -63,7 +64,7 @@ const BottomBarNav = (props) => {
         >
           <Tab.Screen
               name={"Home"}
-              component={Test1}
+              component={SignNavigation}
               screenOptions={{
                 headerShown: false
               }}

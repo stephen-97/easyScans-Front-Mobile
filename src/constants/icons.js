@@ -11,6 +11,7 @@ const userForm = require("../assets/icons/userForm.png");
 const plusIcon = require("../assets/icons/plusIcon.png");
 const arrowHeadUp = require("../assets/icons/arrowHeadUp.png");
 
+const userFormTest = require("../assets/icons/UserFormTest.svg")
 export default {
   
   //Bottom navigation bar icons
@@ -35,4 +36,6 @@ export default {
   //arithmetic icons
   plusIcon,
   arrowHeadUp,
+
+  userFormTest
 };

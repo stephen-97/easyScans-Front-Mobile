@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { TextInput, StyleSheet, View, Text, Image } from "react-native";
 import { icons } from "../constants";
+import { UserFormTest } from '../assets/icons/UserFormTest.svg'
+import {SvgXml} from "react-native-svg";
 import colors from "../constants/colors";
 
 const InputText = (props) => {
@@ -21,7 +23,7 @@ const InputText = (props) => {
         </View>
     )
 }
-
+//{props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
 const styles = StyleSheet.create({
     container: {
         justifyContent: "center",

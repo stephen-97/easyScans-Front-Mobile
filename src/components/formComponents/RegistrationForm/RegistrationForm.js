@@ -14,17 +14,10 @@ import { SERVER } from "../../../../config";
 const RegistrationForm = (props) => {
   
     //sizes for animation
-    const pageSize = {small : 200, large: 1000}
-
     const [page, SetPage] = useState('choix');
 
     //animations
     const animValue = useRef(new Animated.Value(1)).current;
-    const animScaleValue = useRef(new Animated.Value(1000)).current;
-
-
-    const dataTagsList = ["Shonen", "Seinen", "Shojo", "catégorie 4", "catégorie 5", "catégorie 6", "catégorie 7", "catégorie 8"];
-    const [dataTags, setDataTags] = useState([]);
 
 
 
