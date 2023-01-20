@@ -8,21 +8,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/SignNavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignInScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignUpScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.svgrrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-native.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/svg/svgTest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/MainNavigator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/UtilityNavigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/UtilityScreens/LoadingScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metro.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationFormExample.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationLoadingScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationThirdScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarAppearanceNav.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/SignNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/SignNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +100,7 @@
       <workItem from="1673728286974" duration="6687000" />
       <workItem from="1673805894503" duration="6423000" />
       <workItem from="1673823350998" duration="12333000" />
-      <workItem from="1673875307783" duration="11877000" />
+      <workItem from="1673875307783" duration="57274000" />
     </task>
     <servers />
   </component>

@@ -11,45 +11,60 @@ import {icons} from "../../../constants"
 import Button from "../../Button";
 import colors from "../../../constants/colors";
 import {useNavigation} from "@react-navigation/native";
+import {Request} from "../../../request/requestFunctions";
+import url from "../../../request/url";
+import * as ImagePicker from "expo-image-picker";
 
 const SignUpScreen = (props) => {
 
-  //animations
-  const animValue = useRef(new Animated.Value(1)).current;
-
-
-
-  const [requestResponse, setRequestResponse] = useState({status: null, message: null});
+  const navigation = useNavigation();
 
   const dispatch = useDispatch();
 
-  const SignInRequest = async (values) => {
-    return fetch(`http://${SERVER}/API/signing`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values)
-    })
-        .then((response) => response.json())
-        .then((jsonData) => {
-          if(jsonData.status !== 200){
-            alert(jsonData.msg)
-          } else {
-            setRequestResponse(jsonData)
-            dispatch(setUser(userObjectStorage(jsonData.jwt)))
-          }
-        });
-  };
-
   const formVerification = (values) => {
-    if(values.emailOrUsername === '' || values.emailOrUsername === '') return alert("L'un des champs est vide");
-    const object = {
-      'emailOrUsername': values.emailOrUsername.toLowerCase(),
-      'password': values.password
-    }
+    console.log(values.username)
+    if(values.email === '' || values.username === '' ||  values.password === '' ||  values.confirmPassword === '') return alert("L'un des champs est vide");
+    const bodyObject = JSON.stringify({
+      'email': values.email.toLowerCase(),
+      'username': values.username,
+      'password': values.password,
+      'confirmPassword': values.confirmPassword,
+      'avatar': values.avatarBase64Data
+    });
+    navigation.navigate('LoadingScreen');
+    Request(url.signUp.method, url.signUp.endpoint, bodyObject, null)
+        .then(data => {
+          console.log(data)
+          if(data.status === url.signUp.status) {
+            //dispatch(setUser(userObjectStorage(data.body.jwt)))
+            navigation.goBack();
+          } else {
+            navigation.goBack();
+            setTimeout(() => {
+              alert(data.body.msg);
+            }, 500)
+          }
+        })
+        .catch((err) => {
+          navigation.goBack();
+          setTimeout(() => {
+            alert('Erreur serveur');
+          }, 500)
+          console.log(err);
+        })
   }
+
+  const chooseAvatar = async (handleChange) => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      base64: true,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      handleChange('avatar')(result.base64);
+    }
+  };
 
   return (
           <Formik
@@ -58,14 +73,14 @@ const SignUpScreen = (props) => {
           >
             {({ handleChange,  handleSubmit, values }) => (
                 <>
-                  <InputText onChangeText={handleChange('email')} title="Email" placeholder="Email " value={null} icon={icons.userFormTest}/>
-                  <InputText onChangeText={handleChange('username')} title="Username" placeholder="Username" value={null} icon={icons.userForm}/>
-                  <InputText onChangeText={handleChange('password')} title="Password" placeholder="Password" password value={null} icon={icons.password}/>
-                  <InputText onChangeText={handleChange('confirmPassword')} title="Confirm Password" placeholder="Confirm password" password value={null} icon={icons.password}/>
+                  <InputText onChangeText={handleChange('email')} title="Email" placeholder="Email " value={null} icon={"email"}/>
+                  <InputText onChangeText={handleChange('username')} title="Username" placeholder="Username" value={null} icon={"username"}/>
+                  <InputText onChangeText={handleChange('password')} title="Password" placeholder="Password" password value={null} icon={"password"}/>
+                  <InputText onChangeText={handleChange('confirmPassword')} title="Confirm Password" placeholder="Confirm password" password value={null} icon={"password"}/>
                   <TouchableOpacity
                       activeOpacity={.9}
                       style={styles.avatarField}
-                      onPress={() => null}
+                      onPress={() => chooseAvatar(handleChange)}
                   >
                     <>
                       <Image style={styles.avatar} source={values.avatarUri && values.avatarBase64Data? {uri: "data:image/png;base64," + values.avatarBase64Data }: icons.avatar}/>

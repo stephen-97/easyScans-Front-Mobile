@@ -1,5 +1,17 @@
 import {SERVER} from "../../config";
 
+const signIn = {
+  endpoint: `API/signing`,
+  method: 'POST',
+  status: 200,
+}
+
+const signUp = {
+  endpoint: `API/signup`,
+  method: 'POST',
+  status: 200,
+}
+
 const changeEmail = {
   endpoint: `API/changeEmail`,
   method: 'PUT',
@@ -35,5 +47,9 @@ export default {
   changePassword,
   changeAvatar,
   changeVerticalReading,
-  changeShockingContent
+  changeShockingContent,
+
+  //POST
+  signIn,
+  signUp
 };

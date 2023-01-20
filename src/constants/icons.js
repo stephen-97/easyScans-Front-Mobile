@@ -1,3 +1,9 @@
+
+//SVG
+import UserForm from '../assets/icons/UserFormTest.svg'
+import Home from '../assets/icons/home.svg';
+
+
 const bd = require("../assets/icons/bd.png");
 const home = require("../assets/icons/home.png");
 const user = require("../assets/icons/user.png");
@@ -11,7 +17,6 @@ const userForm = require("../assets/icons/userForm.png");
 const plusIcon = require("../assets/icons/plusIcon.png");
 const arrowHeadUp = require("../assets/icons/arrowHeadUp.png");
 
-const userFormTest = require("../assets/icons/UserFormTest.svg")
 export default {
   
   //Bottom navigation bar icons
@@ -37,5 +42,5 @@ export default {
   plusIcon,
   arrowHeadUp,
 
-  userFormTest
+  UserForm
 };
