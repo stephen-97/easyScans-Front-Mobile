@@ -22,28 +22,30 @@ const SignInForm= (props) => {
 
 
   const formVerification = (values) => {
-    if(values.emailOrUsername === '' || values.password === '') return alert("L'un des champs est vide");
-    const bodyObject = {
+    //dispatch(setUser({'test' : 'test'}))
+    if(values.emailOrUsername === '' || values.password === '') return Alert.alert("Erreur", "L'un des champs est vide")
+    const bodyObject = JSON.stringify({
       'emailOrUsername': values.emailOrUsername.toLowerCase(),
       'password': values.password
-    }
+    })
     navigation.navigate('LoadingScreen');
     Request(url.signIn.method, url.signIn.endpoint, bodyObject, null)
         .then(data => {
           if(data.status === url.signIn.status) {
-            dispatch(setUser(userObjectStorage(data.body.jwt)))
             navigation.goBack();
+            dispatch(setUser(userObjectStorage(data.body.jwt)))
+            //navigation.navigate('BottomBarNav');
           } else {
             navigation.goBack();
             setTimeout(() => {
-              alert(data.body.msg);
+              Alert.alert("Erreur", "Connexion impossible, veuillez réessayer")
             }, 500)
           }
         })
         .catch((err) => {
           navigation.goBack();
           setTimeout(() => {
-            alert('Erreur serveur');
+            Alert.alert("Erreur", "Pas de connexion au serveur")
           }, 500)
           console.log(err);
         })

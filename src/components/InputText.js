@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { TextInput, StyleSheet, View, } from "react-native";
+import React, {useImperativeHandle, useState} from "react";
+import { TextInput, StyleSheet, View, Keyboard } from "react-native";
 import { icons } from "../constants";
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../constants/colors";
@@ -19,6 +19,7 @@ const InputText = (props) => {
                 return null
         }
     }
+
     return(
         <View style={styles.container}>
             {props.icon ? <Icon style={styles.icon} name={choiceIcon()} size={30} color="gray" /> : null}
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         borderWidth: 2,
         borderColor: colors.inputColor,
-        fontSize: 20,
+        fontSize: 16,
     },
     title: {
         fontSize: 15,

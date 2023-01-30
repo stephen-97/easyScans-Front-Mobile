@@ -1,21 +1,16 @@
 import React, {useState, useEffect, useRef} from "react";
-import {View, StyleSheet, Animated, Text, TouchableOpacity,Image} from "react-native";
+import {StyleSheet, TouchableOpacity, Image, Alert} from "react-native";
 import {connect, useDispatch } from "react-redux";
-//import {setUser} from "../../redux/redux";
-import {setUser} from "../../../redux/redux";
-import {userObjectStorage} from "../../../utility/security/encodeJwt";
-import {SERVER} from "../../../../config";
-import {Formik} from "formik";
-import InputText from "../../InputText";
-import {icons} from "../../../constants"
-import Button from "../../Button";
-import colors from "../../../constants/colors";
 import {useNavigation} from "@react-navigation/native";
 import {Request} from "../../../request/requestFunctions";
+import {Formik} from "formik";
+import InputText from "../../InputText";
+import Button from "../../Button";
+import UserWithoutAvatar from '../../../assets/icons/userWithoutAvatar.svg'
 import url from "../../../request/url";
 import * as ImagePicker from "expo-image-picker";
 
-const SignUpScreen = (props) => {
+const SignUpForm = (props) => {
 
   const navigation = useNavigation();
 
@@ -36,19 +31,19 @@ const SignUpScreen = (props) => {
         .then(data => {
           console.log(data)
           if(data.status === url.signUp.status) {
-            //dispatch(setUser(userObjectStorage(data.body.jwt)))
             navigation.goBack();
+            //dispatch(setUser(userObjectStorage(data.body.jwt)))
           } else {
             navigation.goBack();
             setTimeout(() => {
-              alert(data.body.msg);
+              Alert.alert("Erreur", "Inscription impossible, email ou username déjà utilisé, veuillez réessayer")
             }, 500)
           }
         })
         .catch((err) => {
           navigation.goBack();
           setTimeout(() => {
-            alert('Erreur serveur');
+            Alert.alert("Erreur serveur", "Inscription impossible, veuillez réessayer")
           }, 500)
           console.log(err);
         })
@@ -68,7 +63,7 @@ const SignUpScreen = (props) => {
 
   return (
           <Formik
-              initialValues={{email: '', username: '', password: '', confirmPassword: '', avatarUri: '', avatarBase64Data: ''}}
+              initialValues={{email: '', username: '', password: '', confirmPassword: '', avatar: ''}}
               onSubmit={values => formVerification(values)}
           >
             {({ handleChange,  handleSubmit, values }) => (
@@ -83,7 +78,11 @@ const SignUpScreen = (props) => {
                       onPress={() => chooseAvatar(handleChange)}
                   >
                     <>
-                      <Image style={styles.avatar} source={values.avatarUri && values.avatarBase64Data? {uri: "data:image/png;base64," + values.avatarBase64Data }: icons.avatar}/>
+                      {values.avatar ?
+                          <Image style={styles.avatar} source={{uri: "data:image/png;base64," + values.avatar}}/>
+                          :
+                          <UserWithoutAvatar  height={70} width={70} style={styles.noAvatar}/>
+                      }
                     </>
                   </TouchableOpacity>
                   <Button onPress={() => handleSubmit()} title="Submit"/>
@@ -98,7 +97,7 @@ const mapStateToProps = state => {
     user: state.user
   }
 }
-export default connect(mapStateToProps )(SignUpScreen);
+export default connect(mapStateToProps )(SignUpForm);
 
 const styles = StyleSheet.create({
 
@@ -128,5 +127,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderColor: "black",
     borderWidth: 1,
+  },
+  noAvatar:{
+    alignSelf: "center",
+    height: 70,
+    width: 70,
   },
 });

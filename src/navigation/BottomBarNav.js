@@ -6,6 +6,7 @@ import { icons } from "../constants";
 import AccountNavigation from "./AccountNavigation";
 import Icon from "react-native-vector-icons/Ionicons";
 import colors from "../constants/colors";
+import HomeScreenNavigation from "./HomeScreenNavigation";
 
 const BottomBarNav = (props) => {
   const Tab = createBottomTabNavigator();
@@ -21,18 +22,19 @@ const BottomBarNav = (props) => {
             tabBarActiveTintColor: '#f66c6c',
             tabBarLabelStyle: {
               fontSize: 11,
-              fontWeight: 'bold'
+              fontWeight: 'bold',
             },
             tabBarInactiveTintColor: 'gray',
             tabBarStyle: {
               backgroundColor: colors.darkButton,
-              borderTopWidth: 0,
+              borderTopWidth: 10,
+              borderTopColor: colors.darkButton
             },
         }}
         >
           <Tab.Screen
               name={"Home"}
-              component={SignNavigation}
+              component={HomeScreenNavigation}
               options={{
                 tabBarLabel: 'Accueil',
                 tabBarIcon: ({ color, size }) => (

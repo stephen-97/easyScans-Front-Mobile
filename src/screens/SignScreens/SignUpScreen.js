@@ -19,41 +19,6 @@ const SignUpScreen = (props) => {
 
   const navigation = useNavigation();
   //animations
-  const animValue = useRef(new Animated.Value(1)).current;
-
-
-
-  const [requestResponse, setRequestResponse] = useState({status: null, message: null});
-
-  const dispatch = useDispatch();
-
-  const SignInRequest = async (values) => {
-    return fetch(`http://${SERVER}/API/signing`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values)
-    })
-        .then((response) => response.json())
-        .then((jsonData) => {
-          if(jsonData.status !== 200){
-            alert(jsonData.msg)
-          } else {
-            setRequestResponse(jsonData)
-            dispatch(setUser(userObjectStorage(jsonData.jwt)))
-          }
-        });
-  };
-
-  const formVerification = (values) => {
-    if(values.emailOrUsername === '' || values.emailOrUsername === '') return alert("L'un des champs est vide");
-    const object = {
-      'emailOrUsername': values.emailOrUsername.toLowerCase(),
-      'password': values.password
-    }
-  }
 
   return (
       <View style={styles.container}>

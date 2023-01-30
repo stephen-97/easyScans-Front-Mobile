@@ -29,7 +29,6 @@ const AccountScreen = (props) => {
     }
     Request(url.changeVerticalReading.method, url.changeVerticalReading.endpoint, JSON.stringify(objectBody), props.user.token)
         .then((json) => {
-          console.log(json)
           if(json.status === url.changeVerticalReading.status) {
             dispatch(setUser(userObjectStorage(json.body.jwt)))
           } else {
@@ -49,7 +48,6 @@ const AccountScreen = (props) => {
     }
     Request(url.changeShockingContent.method, url.changeShockingContent.endpoint, JSON.stringify(objectBody), props.user.token)
         .then((json) => {
-          console.log(json)
           if(json.status === url.changeShockingContent.status) {
             dispatch(setUser(userObjectStorage(json.body.jwt)))
           } else {
@@ -64,6 +62,7 @@ const AccountScreen = (props) => {
   const navigation = useNavigation();
 
   useEffect(() =>{
+    console.log('BROOOO')
   }, [props.user])
     return (
       <ScrollView style={{backgroundColor: "#f66c6c", flex: 1,}} contentContainerStyle={{justifyContent: "center"}}>

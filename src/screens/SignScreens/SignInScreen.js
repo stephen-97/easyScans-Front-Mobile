@@ -13,6 +13,8 @@ import ButtonWithLogo from "../../components/ButtonWithLogo";
 import colors from "../../constants/colors";
 import {useNavigation} from "@react-navigation/native";
 import SignInForm from "../../components/formComponents/SignForm/SignInForm";
+import url from "../../request/url";
+import {Request} from "../../request/requestFunctions";
 
 
 const SignInScreen = (props) => {
@@ -20,42 +22,12 @@ const SignInScreen = (props) => {
 
   const navigation = useNavigation();
 
-  const dispatch = useDispatch();
-
-  const SignInRequest = async (values) => {
-    return fetch(`http://${SERVER}/API/signing`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values)
-    })
-        .then((response) => response.json())
-        .then((jsonData) => {
-          if(jsonData.status !== 200){
-            alert(jsonData.msg)
-          } else {
-            setRequestResponse(jsonData)
-            dispatch(setUser(userObjectStorage(jsonData.jwt)))
-          }
-        });
-  };
-
-  const formVerification = (values) => {
-    if(values.emailOrUsername === '' || values.emailOrUsername === '') return alert("L'un des champs est vide");
-    const object = {
-      'emailOrUsername': values.emailOrUsername.toLowerCase(),
-      'password': values.password
-    }
-  }
-
   return (
       <View style={styles.container}>
         <View style={styles.inputsView}>
               <SignInForm />
               <ButtonWithLogo
-                  onPress={() => props.handleChangePage('formulaire')}
+                  onPress={() => null}
                   extraStyle={styles.extraStyleButton}
                   extraStyleTitle={styles.extraStyleTextButton}
                   title="Connexion Gmail"

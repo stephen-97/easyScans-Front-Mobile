@@ -4,6 +4,7 @@ import { icons } from "../../constants";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../../constants/colors";
 
 const AccountField = (props) => {
@@ -50,7 +51,7 @@ const AccountField = (props) => {
           <Text style={styles.legend}>{props.legend}</Text>
           <Text style={styles.text}>{Object.keys(props.user).length === 0 ?  'aaaaaaaaaaaa' : rightParam() }</Text>
           {{
-            true: <Image style={styles.fieldIcon} source={icons.arrowHeadUp}/>,
+            true: <Icon style={styles.fieldIcon} name={'ios-chevron-up'} size={25} color={colors.darkButton} />,
           }[props.touchable]}
         </>
       </TouchableHighlight>

@@ -8,33 +8,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.svgrrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-native.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/svgTest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/MainNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/UtilityNavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/UtilityScreens/LoadingScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListComponents/ListManga.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metro.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/navBarBackgroundColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/spinner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ButtonWithLogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ButtonWithLogo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationFormExample.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationFirstScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationLoadingScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationSecondScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/RegistrationForm/RegistrationScreens/RegistrationThirdScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/icons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarAppearanceNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/MainNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/MainNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/SignNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/SignNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/request/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/UtilityNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/requestFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SignScreens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SignScreens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignUpScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +51,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/loiola/Bureau/Projet perso/EasyScan Project/easyScans&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/loiola/Bureau/Projet perso/EasyScan Project/easyScans",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/loiola/Bureau/Ecole/Téléchargements ecole/WebStorm-222.4345.14/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/screens/accountScreens" />
@@ -100,7 +99,9 @@
       <workItem from="1673728286974" duration="6687000" />
       <workItem from="1673805894503" duration="6423000" />
       <workItem from="1673823350998" duration="12333000" />
-      <workItem from="1673875307783" duration="57274000" />
+      <workItem from="1673875307783" duration="69305000" />
+      <workItem from="1674574605729" duration="19907000" />
+      <workItem from="1675020791259" duration="7945000" />
     </task>
     <servers />
   </component>
