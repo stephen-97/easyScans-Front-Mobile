@@ -1,14 +1,28 @@
-import React, {useEffect, useState} from "react";
-import { TextInput, StyleSheet, View, Text, Image } from "react-native";
+import React, {useImperativeHandle, useState} from "react";
+import { TextInput, StyleSheet, View, Keyboard } from "react-native";
 import { icons } from "../constants";
+import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../constants/colors";
 
 const InputText = (props) => {
     const [onFocus, setOnFocus] = useState(false);
 
+    const choiceIcon = () => {
+        switch (props.icon) {
+            case 'email':
+                return 'mail'
+            case 'password':
+                return 'lock-closed'
+            case 'username':
+                return 'person'
+            default:
+                return null
+        }
+    }
+
     return(
         <View style={styles.container}>
-            {props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
+            {props.icon ? <Icon style={styles.icon} name={choiceIcon()} size={30} color="gray" /> : null}
             <TextInput
                 style={!onFocus ? styles.input : [styles.input, {borderColor: colors.inputBorderColorFocus}]}
                 onFocus={() => setOnFocus(true)}
@@ -21,7 +35,7 @@ const InputText = (props) => {
         </View>
     )
 }
-
+//{props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
 const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
@@ -37,7 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         borderWidth: 2,
         borderColor: colors.inputColor,
-        fontSize: 20,
+        fontSize: 16,
     },
     title: {
         fontSize: 15,
@@ -45,11 +59,17 @@ const styles = StyleSheet.create({
     },
     icon:{
         position: "absolute",
-        height: 30,
-        width: 25,
         zIndex: 1,
         right: "7.5%",
-    }
+    },
 })
 
 export default InputText;
+
+/**
+ *
+ * {{
+ *                 "Email": <ChangeEmailForm/>,
+ *                 "Mot de passe": <ChangePasswordForm/>,
+ *             }[props.placeholder]}
+ */

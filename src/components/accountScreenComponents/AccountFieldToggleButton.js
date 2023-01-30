@@ -8,7 +8,7 @@ import AccountField from "./AccountField";
 const AccountFieldToggleButton = (props) => {
 
   return (
-      <TouchableOpacity style={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.legend}>{props.legend}</Text>
         <View style={styles.text}>
           <Switch
@@ -19,7 +19,7 @@ const AccountFieldToggleButton = (props) => {
               value={props.isEnabled}
           />
         </View>
-      </TouchableOpacity>
+      </View>
   );
 };
 
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   legend:{
-    fontSize: 16,
+    fontSize: 14,
     position: 'absolute',
     fontWeight: 'bold',
     left: 20

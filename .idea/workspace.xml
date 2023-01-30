@@ -3,17 +3,36 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BnAndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/request/url.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListComponents/ListManga.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/navBarBackgroundColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/spinner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ButtonWithLogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ButtonWithLogo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountScreenComponents/AccountFieldAvatar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangeEmailForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/AccountManagerForm/ChangePasswordForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignInForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/SignForm/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/BottomBarNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/MainNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/MainNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/SignNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/SignNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/UtilityNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/requestFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/requestFunctions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SignScreens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SignScreens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignScreens/SignUpScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +94,14 @@
       <workItem from="1672700482150" duration="1855000" />
       <workItem from="1672779131178" duration="37299000" />
       <workItem from="1673474011340" duration="8248000" />
-      <workItem from="1673611741441" duration="11032000" />
+      <workItem from="1673611741441" duration="19558000" />
+      <workItem from="1673655416578" duration="13827000" />
+      <workItem from="1673728286974" duration="6687000" />
+      <workItem from="1673805894503" duration="6423000" />
+      <workItem from="1673823350998" duration="12333000" />
+      <workItem from="1673875307783" duration="69305000" />
+      <workItem from="1674574605729" duration="19907000" />
+      <workItem from="1675020791259" duration="7945000" />
     </task>
     <servers />
   </component>

@@ -16,12 +16,19 @@ const AccountChangeFormScreen = (props) => {
   return (
       <View>
         <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
-          <Text style={styles.closeButtonText}>Fermer</Text>
+          <Text style={styles.closeButtonText}>
+            {{
+              "Changer Email": "Modification Email",
+              "Changer Mot de passe": "Modification mot de passe",
+            }[props.route.params.legend]}
+          </Text>
         </TouchableOpacity>
-        {{
-          "Changer Email": <ChangeEmailForm/>,
-          "Changer Mot de passe": <ChangePasswordForm/>,
-        }[props.route.params.legend]}
+        <View>
+          {{
+            "Changer Email": <ChangeEmailForm/>,
+            "Changer Mot de passe": <ChangePasswordForm/>,
+          }[props.route.params.legend]}
+        </View>
       </View>
   );
 };
@@ -40,6 +47,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(AccountChangeFormScreen);
 
 const styles = StyleSheet.create({
+
   closeButton:{
     width: "100%",
     height: 65,

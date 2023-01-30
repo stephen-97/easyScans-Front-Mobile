@@ -1,9 +1,12 @@
+
+//SVG
+import UserForm from '../assets/icons/UserFormTest.svg'
+
+
 const bd = require("../assets/icons/bd.png");
 const home = require("../assets/icons/home.png");
 const user = require("../assets/icons/user.png");
-const backgroundColor = require("../assets/icons/navBarBackgroundColor.png");
 const avatar = require("../assets/icons/userWithoutAvatar.png");
-const spinner = require("../assets/icons/spinner.png");
 const googleLogo = require("../assets/icons/googleLogo.png");
 const email = require("../assets/icons/email.png");
 const password = require("../assets/icons/password.png");
@@ -18,14 +21,9 @@ export default {
   home,
   user,
 
-  //Bottom navigation color
-  backgroundColor,
-
   //avatar
   avatar,
 
-  //spinner
-  spinner,
   googleLogo,
 
   email,
@@ -35,4 +33,6 @@ export default {
   //arithmetic icons
   plusIcon,
   arrowHeadUp,
+
+  UserForm
 };

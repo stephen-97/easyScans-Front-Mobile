@@ -1,21 +1,62 @@
-import React from "react";
+import React, {useState} from "react";
 import {StyleSheet, Image, TouchableOpacity, View} from "react-native";
 import { icons } from "../../constants";
 import propTypes from "prop-types";
-import {url} from "../../utility/url/url";
-import {connect} from "react-redux";
+import url from '../../request/url'
+import UserWithoutAvatar from '../../assets/icons/userWithoutAvatar.svg'
+
+import {Request} from "../../request/requestFunctions";
+import {connect, useDispatch} from "react-redux";
+import * as ImagePicker from "expo-image-picker";
+import {userObjectStorage} from "../../utility/security/encodeJwt";
+import {setUser} from "../../redux/redux";
+import Icon from 'react-native-vector-icons/Ionicons';
+import colors from "../../constants/colors";
+
 
 const AccountFieldAvatar = (props) => {
+
+  const dispatch = useDispatch();
+
+  const chooseAvatar = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      base64: true,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      const objectBody = {
+        'avatar': result.base64
+      }
+      Request(url.changeAvatar.method, url.changeAvatar.endpoint, JSON.stringify(objectBody), props.user.token)
+          .then((json) => {
+            console.log()
+            if(json.status === url.changeAvatar.status) {
+              dispatch(setUser(userObjectStorage(json.body.jwt)))
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+    }
+  };
+
 
   return (
       <View style={styles.avatarBlock}>
         <View style={{borderRadius: 500}}>
           <TouchableOpacity
               style={styles.changeAvatarButtonContainer}
+              onPress={() => chooseAvatar()}
           >
-            <Image style={styles.changeAvatarButton} source={icons.plusIcon}/>
+            <Icon name={'add'} size={30} color={colors.darkButton} />
           </TouchableOpacity>
-          <Image style={styles.avatar} source={props.user && props.user.avatar ? {uri: url.avatarUrl(props.user.avatar)} : icons.avatar}/>
+          {props.user.avatar ?
+              <Image style={styles.avatar} source={{uri: "data:image/png;base64," + props.user.avatar}}/>
+              :
+              <UserWithoutAvatar height={220} width={220} style={styles.avatar}/>
+          }
         </View>
       </View>
   );
@@ -51,15 +92,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 1,
     top: 20,
-    mozBorderRadius: 10,
     right: 20,
     borderColor: '#838383',
-    borderWidth: 1
-  },
-  changeAvatarButton: {
-    padding: 10,
-    borderRadius: 500,
-    height: 30,
-    width: 30,
+    borderWidth: 1,
+    justifyContent: 'center'
   },
 });

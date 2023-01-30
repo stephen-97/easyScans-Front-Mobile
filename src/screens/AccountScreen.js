@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from "react";
 import {View, Switch, StyleSheet, Image, Text, ScrollView, TouchableOpacity} from "react-native";
 import { icons } from "../constants";
-import {connect} from "react-redux";
-import { url} from "../utility/url/url";
+import {connect, useDispatch} from "react-redux";
+import url from '../request/url'
 import Button from "../components/Button";
 import colors from "../constants/colors";
 import AccountField from "../components/accountScreenComponents/AccountField";
@@ -11,18 +11,63 @@ import AccountFieldToggleButton from "../components/accountScreenComponents/Acco
 import {useNavigation} from "@react-navigation/native";
 import propTypes from "prop-types";
 import Line from "../utility/Line";
+import {Request} from "../request/requestFunctions";
+import {setUser} from "../redux/redux";
+import {userObjectStorage} from "../utility/security/encodeJwt";
 
 const AccountScreen = (props) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const dispatch = useDispatch();
 
+  const [verticalReading, setVerticalReading] = useState(props.user ? props.user.verticalReading : null);
+  const [shockingContent, setShockingContent] = useState(props.user ? props.user.shockingContent : null);
+
+
+  const changeVerticalReading = () => {
+    setVerticalReading(previousState => !previousState)
+    const objectBody = {
+      'verticalReading': !props.user.verticalReading
+    }
+    Request(url.changeVerticalReading.method, url.changeVerticalReading.endpoint, JSON.stringify(objectBody), props.user.token)
+        .then((json) => {
+          if(json.status === url.changeVerticalReading.status) {
+            dispatch(setUser(userObjectStorage(json.body.jwt)))
+          } else {
+            setVerticalReading(previousState => !previousState)
+          }
+        })
+        .catch((err) => {
+          setVerticalReading(previousState => !previousState)
+          console.log(err)
+        })
+  }
+
+  const changeShockingContent = () => {
+    setShockingContent(previousState => !previousState)
+    const objectBody = {
+      'shockingContent': !props.user.shockingContent
+    }
+    Request(url.changeShockingContent.method, url.changeShockingContent.endpoint, JSON.stringify(objectBody), props.user.token)
+        .then((json) => {
+          if(json.status === url.changeShockingContent.status) {
+            dispatch(setUser(userObjectStorage(json.body.jwt)))
+          } else {
+            setShockingContent(previousState => !previousState)
+          }
+        })
+        .catch((err) => {
+          setShockingContent(previousState => !previousState)
+          console.log(err)
+        })
+  }
   const navigation = useNavigation();
 
+  useEffect(() =>{
+    console.log('BROOOO')
+  }, [props.user])
     return (
       <ScrollView style={{backgroundColor: "#f66c6c", flex: 1,}} contentContainerStyle={{justifyContent: "center"}}>
         <View style={styles.inputsView}>
           <AccountFieldAvatar/>
-
           <View style={styles.fieldsContainer}>
             <Text style={styles.fieldsContainerLegend}>Compte</Text>
             <Line color={'rgba(0,0,0,0.3)'}/>
@@ -32,30 +77,42 @@ const AccountScreen = (props) => {
             <Line color={'rgba(0,0,0,0.3)'}/>
             <AccountField legend={"Changer Email"} parameter='email' touchable/>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountField legend={"Changer Mot de passe"} parameter='password' touchable/>
+            <AccountField legend={"Changer Mot de passe"} parameter='noValue' touchable/>
             <Line color={'rgba(0,0,0,0.3)'}/>
           </View>
 
           <View style={styles.fieldsContainer}>
             <Text style={styles.fieldsContainerLegend}>Préférence</Text>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountFieldToggleButton legend={"Lecture verticale "} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+            <AccountFieldToggleButton legend={"Lecture verticale "} toggleSwitch={changeVerticalReading} isEnabled={verticalReading}/>
             <Line color={'rgba(0,0,0,0.3)'}/>
-            <AccountFieldToggleButton legend={"Masquer contenu sensible"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+            <AccountFieldToggleButton legend={"Contenu sensible"} toggleSwitch={changeShockingContent} isEnabled={shockingContent}/>
             <Line color={'rgba(0,0,0,0.3)'}/>
           </View>
 
-          <Button
-              title="Déconnexion"
-              onPress={() => null}
-              extraStyle={styles.button}
-          />
-          <Button
-              title="Supprimer compte"
-              onPress={() => navigation.push("AccountDeleteFormScreen")}
-              extraStyle={styles.buttonDelete}
-              extraStyleText={styles.buttonDeleteText}
-          />
+          <View style={styles.fieldsContainer}>
+            <Text style={styles.fieldsContainerLegend}>À propos</Text>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Condition d'utilisations"} parameter='noValue' touchable/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+            <AccountField legend={"Besoin d'aide"} parameter='noValue' touchable/>
+            <Line color={'rgba(0,0,0,0.3)'}/>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <Button
+                title="Déconnexion"
+                onPress={() => null}
+                extraStyle={styles.button}
+                extraStyleText={styles.buttonText}
+            />
+            <Button
+                title="Supprimer compte"
+                onPress={() => navigation.push("AccountDeleteFormScreen")}
+                extraStyle={styles.buttonDelete}
+                extraStyleText={styles.buttonDeleteText}
+            />
+          </View>
         </View>
       </ScrollView>
     );
@@ -130,21 +187,30 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       right: 50,
     },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around'
+    },
     button: {
-      width: 200,
-      alignSelf: 'center',
+      width: 150,
+      fontSize: 10,
       borderRadius: 30,
       height: 50,
     },
     buttonDelete: {
-      width: 200,
-      alignSelf: 'center',
+      width: 150,
       backgroundColor: colors.darkButton,
       borderRadius: 30,
       height: 50,
     },
+    buttonText: {
+      fontSize: 14,
+      fontWeight: 'bold'
+    },
     buttonDeleteText: {
-      color: 'white'
+      color: 'white',
+      fontSize: 14,
+      fontWeight: 'bold'
     },
     fieldIcon: {
       position: 'absolute',

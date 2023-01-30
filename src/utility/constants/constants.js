@@ -1,6 +1,6 @@
 import {SERVER} from "../../../config";
 
-export const url = {
+export const constants = {
     avatarUrl : (avatarName) => {
         return `http://${SERVER}/public/avatars/${avatarName}`
     }

@@ -4,8 +4,6 @@ import colors from "../constants/colors";
 import propTypes from 'prop-types';
 
 const Button = (props) => {
-    const [onFocus, setOnFocus] = useState(false);
-
     return(
         <TouchableOpacity
             style={[styles.button, props.extraStyle]}
