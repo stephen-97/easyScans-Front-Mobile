@@ -14,9 +14,9 @@ const HomeScreen = (props) => {
   }, [props.user])
   return (
       <ScrollView style={styles.container} contentContainerStyle={{justifyContent: "center"}}>
-        <View style={{marginTop: 200}}>
         <ListManga />
-        </View>
+        <ListManga />
+        <ListManga />
       </ScrollView>
   );
 };

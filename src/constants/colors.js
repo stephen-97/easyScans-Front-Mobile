@@ -8,4 +8,7 @@ export default {
     darkButtonOpacity: '#3b3a3aF5',
 
     lightGray: "#e2e2e2",
+
+    // LoadingImage Background Color List
+    ligthGrayLoading: "#d4d4d4"
 }

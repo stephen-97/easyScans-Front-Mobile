@@ -53,7 +53,7 @@ const AccountFieldAvatar = (props) => {
             <Icon name={'add'} size={30} color={colors.darkButton} />
           </TouchableOpacity>
           {props.user.avatar ?
-              <Image style={styles.avatar} source={{uri: "data:image/png;base64," + props.user.avatar}}/>
+              <Image style={styles.avatar} source={{uri: url.avatarUrl(props.user.avatar)}}/>
               :
               <UserWithoutAvatar height={220} width={220} style={styles.avatar}/>
           }
