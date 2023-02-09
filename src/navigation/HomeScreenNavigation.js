@@ -7,10 +7,13 @@ import {View, Image} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import icons from "../constants/icons";
 import Button from "../components/Button";
+import SearchScreen from "../screens/HomeScreen/SearchScreen";
+import {useNavigation} from "@react-navigation/native";
 
 const HomeScreenNavigation = (props) => {
 
   const Stack = createNativeStackNavigator();
+  const navigation = useNavigation();
 
   return (
       <Stack.Navigator
@@ -29,7 +32,7 @@ const HomeScreenNavigation = (props) => {
           },
           headerRight: () => {
             return (
-                <TouchableHighlight style={{marginRight: 10}} onPress={() => console.log("test icon header")}>
+                <TouchableHighlight style={{marginRight: 10}} onPress={() => navigation.navigate('SearchScreen')}>
                   <Icon name={'search-sharp'} size={30} color={'#f66c6c'}/>
                 </TouchableHighlight>
             )
@@ -39,6 +42,13 @@ const HomeScreenNavigation = (props) => {
               name={"HomeScreen"}
               component={HomeScreen}
           />
+        </Stack.Group>
+        <Stack.Group
+          screenOptions={{
+            presentation: 'fullScreenModal'
+          }}
+        >
+          <Stack.Screen name={"SearchScreen"} component={SearchScreen} />
         </Stack.Group>
       </Stack.Navigator>
   );

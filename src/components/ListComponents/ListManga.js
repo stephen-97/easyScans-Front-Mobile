@@ -25,22 +25,38 @@ const ListManga = (props) => {
 
   const animation = useSharedValue(1);
 
-  const pressed = useSharedValue(false);
-  const eventHandler = useAnimatedGestureHandler({
-    onStart: (event, ctx) => {
-      pressed.value = true;
-    },
-    onFinish: (event, ctx) => {
-      pressed.value = false;
-    }
-  })
-  const animationStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{scale: withSpring(pressed.value ? 0.9 : 1)}]
-    }
-  })
 
-  const [focusIndex, setFocusIndex] = useState(0)
+
+  const RenderItem = () => {
+    const pressed = useSharedValue(false);
+    const eventHandler = useAnimatedGestureHandler({
+      onStart: (event, ctx) => {
+        pressed.value = true;
+      },
+      onFinish: (event, ctx) => {
+        pressed.value = false;
+      }
+    })
+    const animationStyle = useAnimatedStyle(() => {
+      return {
+        transform: [{scale: withSpring(pressed.value ? 0.9 : 1)}]
+      }
+    })
+    return (
+        <TapGestureHandler
+            key={props.index}
+            onGestureEvent={eventHandler}
+            onActivated={() => console.log("hey")}
+        >
+          <Animated.View style={[styles.viewImage, animationStyle]}>
+            <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
+            <View style={styles.viewTitle}>
+              <Text style={styles.mangaTitle}>{props.title}</Text>
+            </View>
+          </Animated.View>
+        </TapGestureHandler>
+    )
+  }
   return (
       <View style={styles.container}>
         <Text style={styles.title}>{props.title}</Text>
@@ -55,18 +71,7 @@ const ListManga = (props) => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index}) => (
-                <TapGestureHandler
-                    key={index}
-                    onGestureEvent={eventHandler}
-                    onActivated={() => console.log("hey")}
-                >
-                  <Animated.View style={[styles.viewImage, animationStyle]}>
-                    <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
-                    <View style={styles.viewTitle}>
-                      <Text style={styles.mangaTitle}>{item.title}</Text>
-                    </View>
-                  </Animated.View>
-                </TapGestureHandler>
+                <RenderItem title={'Test'} index={index}/>
             )}
         />
       </View>
@@ -112,7 +117,7 @@ const styles = StyleSheet.create({
   },
   viewTitle: {
     height: 50,
-    backgroundColor: colors.darkButton,
+    backgroundColor: '#494949',
   },
   title:{
     marginLeft: 20,

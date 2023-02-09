@@ -8,15 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ListComponents/TopMangaList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/HomeScreen/SearchScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ListComponents/ListManga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListComponents/ListManga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +82,7 @@
       <workItem from="1675020791259" duration="7945000" />
       <workItem from="1675083487941" duration="19073000" />
       <workItem from="1675694199892" duration="22079000" />
-      <workItem from="1675873053118" duration="3851000" />
+      <workItem from="1675873053118" duration="7044000" />
     </task>
     <servers />
   </component>
