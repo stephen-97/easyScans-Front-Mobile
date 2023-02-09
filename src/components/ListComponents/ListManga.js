@@ -1,84 +1,98 @@
 import React, {useState, useEffect, useRef} from "react";
-import {StyleSheet, Image, Text, View, FlatList} from "react-native";
+import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity} from "react-native";
 import { icons } from "../../constants";
+import Animated, {
+  useSharedValue,
+  useAnimatedScrollHandler,
+  useAnimatedGestureHandler,
+  useAnimatedStyle,
+  withTiming, withSpring
+} from 'react-native-reanimated';
+import {TapGestureHandler} from "react-native-gesture-handler";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../../constants/colors";
 import url from "../../request/url";
+import Button from "../Button";
 
 const ListManga = (props) => {
 
   const navigation = useNavigation();
 
-  const screenAccountNavigation = () => {
-    switch (props.legend) {
-      case 'Changer Email':
-        navigation.push("AccountChangeFormScreen", {legend: props.legend})
-        break;
-      case 'Changer Mot de passe':
-        navigation.push("AccountChangeFormScreen", {legend: props.legend})
-        break;
-      default:
-        break;
+  const testData= [{id: "0", title: "test 1"}, {id: "2", title: "test 2"}, {id: "3", title: "test 3"}, {id: "4", title: "test 4"}, {id: "5", title: "test 5"}]
+
+  const animation = useSharedValue(1);
+
+  const pressed = useSharedValue(false);
+  const eventHandler = useAnimatedGestureHandler({
+    onStart: (event, ctx) => {
+      pressed.value = true;
+    },
+    onFinish: (event, ctx) => {
+      pressed.value = false;
     }
-  }
-
-  const rightParam = () => {
-    switch (props.parameter) {
-      case 'username':
-        return props.user.username
-      case 'email':
-        return props.user.email
-      case 'createdAd':
-        return props.user.createdAd
-      case 'noValue':
-        return ''
-      default:
-        break;
+  })
+  const animationStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{scale: withSpring(pressed.value ? 0.9 : 1)}]
     }
-  }
+  })
 
-  const testData= ["test 1", "test 2", "test 3", "test 4", "test 4","test 4","test 4","test 4","test 4", "test"]
-
-
-  const renderItem = () => {
-    return (
-        <>
-          <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
-        </>
-    )
-  }
+  const [focusIndex, setFocusIndex] = useState(0)
   return (
       <View style={styles.container}>
-        <Text style={styles.title}>Nouveautés</Text>
+        <Text style={styles.title}>{props.title}</Text>
         <FlatList
             data={testData}
             initialNumToRender={2}
             windowSize={3}
             maxToRenderPerBatch={2}
-            keyExtractor={item => item.id}
+            keyExtractor={(item, index) => {
+              return index.toString()
+            }}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-                <View style={styles.viewImage}>
-                  <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
-                  <View style={styles.viewTitle}>
-                    <Text style={styles.mangaTitle}>Titre</Text>
-                  </View>
-                </View>
+            renderItem={({item, index}) => (
+                <TapGestureHandler
+                    key={index}
+                    onGestureEvent={eventHandler}
+                    onActivated={() => console.log("hey")}
+                >
+                  <Animated.View style={[styles.viewImage, animationStyle]}>
+                    <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
+                    <View style={styles.viewTitle}>
+                      <Text style={styles.mangaTitle}>{item.title}</Text>
+                    </View>
+                  </Animated.View>
+                </TapGestureHandler>
             )}
         />
       </View>
   );
 };
 
+ListManga.propTypes = {
+  extraStyle: propTypes.object,
+  extraStyleText: propTypes.object,
+  title: propTypes.string.isRequired,
+}
+
 const mapStateToProps = (state) => {
   return {
     user: state.user,
   }
 }
+/**
+ * <TapGestureHandler
+ *             onGestureEvent={eventHandler}
+ *             onActivated={() => console.log("hey")}
+ *             onPress={() => console.log("test")}
+ *         >
+ *           <Animated.View onPress={() => console.log("test")} style={[{height: 100, width: 100, backgroundColor: 'yellow'}, animationStyle]}></Animated.View>
+ *         </TapGestureHandler>
+ */
 
 export default connect(mapStateToProps)(ListManga);
 
@@ -118,3 +132,52 @@ const styles = StyleSheet.create({
     marginTop: 5,
   }
 });
+
+/**
+ *
+ * <View style={styles.container}>
+ *         <Text style={styles.title}>{props.title}</Text>
+ *         <FlatList
+ *             data={testData}
+ *             initialNumToRender={2}
+ *             windowSize={3}
+ *             maxToRenderPerBatch={2}
+ *             keyExtractor={(item, index) => {
+ *               console.log(index.toString())
+ *               return item.toString()
+ *             }}
+ *             horizontal={true}
+ *             showsHorizontalScrollIndicator={false}
+ *             renderItem={({item}) => (
+ *                   <View
+ *                       key={item.id}
+ *                   >
+ *                     {console.log(item.id)}
+ *                   </View>
+ *             )}
+ *         />
+ *       </View>
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *       <TapGestureHandler
+ *                       key={item}
+ *                       onGestureEvent={eventHandler}
+ *                       onActivated={() => console.log("hey")}
+ *                   >
+ *                     <Animated.View style={focusIndex===item.index ? styles.viewImage : [styles.viewImage, animationStyle]}>
+ *                       {console.log(item)}
+ *                       <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
+ *                       <View style={styles.viewTitle}>
+ *                         <Text style={styles.mangaTitle}>{item.title}</Text>
+ *                       </View>
+ *                     </Animated.View>
+ *                   </TapGestureHandler>
+ */

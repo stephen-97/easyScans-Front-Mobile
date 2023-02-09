@@ -4,6 +4,7 @@ import {connect, useDispatch} from "react-redux";
 import {useNavigation} from "@react-navigation/native";
 import propTypes from "prop-types";
 import ListManga from "../../components/ListComponents/ListManga";
+import TopMangaList from "../../components/ListComponents/TopMangaList";
 
 const HomeScreen = (props) => {
   const dispatch = useDispatch();
@@ -14,9 +15,8 @@ const HomeScreen = (props) => {
   }, [props.user])
   return (
       <ScrollView style={styles.container} contentContainerStyle={{justifyContent: "center"}}>
-        <ListManga />
-        <ListManga />
-        <ListManga />
+        <TopMangaList />
+        <ListManga title={"Titre 1"}/>
       </ScrollView>
   );
 };
@@ -37,6 +37,7 @@ export default connect(mapStateToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "white"
   }
 });
