@@ -1,62 +1,16 @@
-import React, {useState, useEffect, useRef} from "react";
-import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity} from "react-native";
-import { icons } from "../../constants";
-import Animated, {
-  useSharedValue,
-  useAnimatedScrollHandler,
-  useAnimatedGestureHandler,
-  useAnimatedStyle,
-  withTiming, withSpring
-} from 'react-native-reanimated';
-import {TapGestureHandler} from "react-native-gesture-handler";
+import React from "react";
+import {StyleSheet,  Text, View, FlatList, } from "react-native";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../../constants/colors";
-import url from "../../request/url";
-import Button from "../Button";
+import MangaItem from "./MangaItem";
 
 const ListManga = (props) => {
 
-  const navigation = useNavigation();
 
   const testData= [{id: "0", title: "test 1"}, {id: "2", title: "test 2"}, {id: "3", title: "test 3"}, {id: "4", title: "test 4"}, {id: "5", title: "test 5"}]
 
-  const animation = useSharedValue(1);
-
-
-
-  const RenderItem = () => {
-    const pressed = useSharedValue(false);
-    const eventHandler = useAnimatedGestureHandler({
-      onStart: (event, ctx) => {
-        pressed.value = true;
-      },
-      onFinish: (event, ctx) => {
-        pressed.value = false;
-      }
-    })
-    const animationStyle = useAnimatedStyle(() => {
-      return {
-        transform: [{scale: withSpring(pressed.value ? 0.9 : 1)}]
-      }
-    })
-    return (
-        <TapGestureHandler
-            key={props.index}
-            onGestureEvent={eventHandler}
-            onActivated={() => console.log("hey")}
-        >
-          <Animated.View style={[styles.viewImage, animationStyle]}>
-            <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>
-            <View style={styles.viewTitle}>
-              <Text style={styles.mangaTitle}>{props.title}</Text>
-            </View>
-          </Animated.View>
-        </TapGestureHandler>
-    )
-  }
   return (
       <View style={styles.container}>
         <Text style={styles.title}>{props.title}</Text>
@@ -71,7 +25,7 @@ const ListManga = (props) => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index}) => (
-                <RenderItem title={'Test'} index={index}/>
+                <MangaItem title={'Test'} index={index}/>
             )}
         />
       </View>
