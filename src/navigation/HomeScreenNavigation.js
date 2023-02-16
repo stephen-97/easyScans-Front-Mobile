@@ -1,16 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback} from "react-native";
+import {TouchableHighlight } from "react-native";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import MangaScreen from "../screens/MangaScreen/MangaScreen";
 import colors from "../constants/colors";
-import {View, Image} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import icons from "../constants/icons";
-import Button from "../components/Button";
 import SearchScreen from "../screens/HomeScreen/SearchScreen";
 import {useNavigation} from "@react-navigation/native";
 
-const HomeScreenNavigation = (props) => {
+const HomeScreenNavigation = () => {
 
   const Stack = createNativeStackNavigator();
   const navigation = useNavigation();
@@ -49,6 +47,7 @@ const HomeScreenNavigation = (props) => {
           }}
         >
           <Stack.Screen name={"SearchScreen"} component={SearchScreen} />
+          <Stack.Screen name={"MangaScreen"} component={MangaScreen} />
         </Stack.Group>
       </Stack.Navigator>
   );

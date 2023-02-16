@@ -11,8 +11,11 @@ import propTypes from "prop-types";
 import {connect} from "react-redux";
 import colors from "../../constants/colors";
 import url from "../../request/url";
+import {useNavigation} from "@react-navigation/native";
 
 const MangaItem = (props) => {
+
+  const navigation = useNavigation();
 
   const pressed = useSharedValue(false);
 
@@ -34,7 +37,7 @@ const MangaItem = (props) => {
       <TapGestureHandler
           key={props.index}
           onGestureEvent={eventHandler}
-          onActivated={() => console.log("hey")}
+          onActivated={() => navigation.navigate('MangaScreen')}
       >
         <Animated.View style={[styles.viewImage, animationStyle]}>
           <Image source={{uri: url.avatarUrl(props.user.avatar)}} style={styles.image}/>

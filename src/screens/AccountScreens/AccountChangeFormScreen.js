@@ -1,13 +1,11 @@
-import React, {useState, useEffect, useRef} from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity} from "react-native";
-import { icons } from "../../constants"
+import React from "react";
+import { View, StyleSheet, Text, TouchableOpacity} from "react-native";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
 import ChangeEmailForm from "../../components/formComponents/AccountManagerForm/ChangeEmailForm";
 import {useNavigation} from "@react-navigation/native";
 import colors from "../../constants/colors";
 import ChangePasswordForm from "../../components/formComponents/AccountManagerForm/ChangePasswordForm";
-import changeEmailForm from "../../components/formComponents/AccountManagerForm/ChangeEmailForm";
 
 const AccountChangeFormScreen = (props) => {
 

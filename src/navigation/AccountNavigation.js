@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import AccountScreen from "../screens/AccountScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Button from "../components/Button";
-import AccountChangeEmailScreen from "../screens/accountScreens/AccountChangeFormScreen";
-import AccountDeleteFormScreen from "../screens/accountScreens/AccountDeleteFormScreen";
+import AccountChangeEmailScreen from "../screens/AccountScreens/AccountChangeFormScreen";
+import AccountDeleteFormScreen from "../screens/AccountScreens/AccountDeleteFormScreen";
 import LoadingScreen from "../screens/UtilityScreens/LoadingScreen";
 
 const AccountNavigation = (props) => {

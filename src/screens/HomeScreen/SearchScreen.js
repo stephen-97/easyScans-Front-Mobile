@@ -7,6 +7,7 @@ import ListManga from "../../components/ListComponents/ListManga";
 import TopMangaList from "../../components/ListComponents/TopMangaList";
 import InputText from "../../components/InputText";
 import Button from "../../components/Button";
+import InputTextBorder from "../../components/inputTextBorder";
 
 const SearchScreen = (props) => {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ const SearchScreen = (props) => {
   }, [props.user])
   return (
       <ScrollView style={styles.container} contentContainerStyle={{justifyContent: "center"}}>
-        <Button title={'Close'} onPress={() => navigation.goBack()} />
-        <InputText />
+        <Text style={styles.closeButton} onPress={() => navigation.goBack()}>Fermer</Text>
+        <InputTextBorder placeholder={"Chercher un manga"} icon={"search-sharp"} />
+        <Text style={styles.closeButton} onPress={() => navigation.goBack()}>Fermer</Text>
       </ScrollView>
   );
 };
@@ -40,6 +42,13 @@ export default connect(mapStateToProps)(SearchScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    paddingTop: 50,
+    marginHorizontal: 50,
+  },
+  closeButton: {
+    fontSize: 20,
+    backgroundColor: "yellow",
+    textAlign: 'center'
   }
 });

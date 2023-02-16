@@ -3,6 +3,8 @@ import { TextInput, StyleSheet, View, Keyboard } from "react-native";
 import { icons } from "../constants";
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../constants/colors";
+import propTypes from "prop-types";
+import Button from "./Button";
 
 const InputText = (props) => {
     const [onFocus, setOnFocus] = useState(false);
@@ -35,7 +37,14 @@ const InputText = (props) => {
         </View>
     )
 }
-//{props.icon ? <Image style={styles.icon} source={props.icon} /> : null}
+
+InputText.propTypes = {
+    icon: propTypes.string,
+    onChangeText: propTypes.func,
+    placeholder: propTypes.string,
+    password: propTypes.bool,
+}
+
 const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
@@ -65,11 +74,3 @@ const styles = StyleSheet.create({
 })
 
 export default InputText;
-
-/**
- *
- * {{
- *                 "Email": <ChangeEmailForm/>,
- *                 "Mot de passe": <ChangePasswordForm/>,
- *             }[props.placeholder]}
- */
