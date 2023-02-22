@@ -4,21 +4,19 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  ScrollView,
   Image,
   FlatList,
-  TouchableHighlight,
-  TouchableWithoutFeedback
+  Pressable,
+  Animated,
 } from "react-native";
 import propTypes from "prop-types";
 import {connect} from "react-redux";
-import ChangeEmailForm from "../../components/formComponents/AccountManagerForm/ChangeEmailForm";
 import {useNavigation} from "@react-navigation/native";
 import {LinearGradient} from "expo-linear-gradient";
 import url from "../../request/url";
 import colors from "../../constants/colors";
-import MangaItem from "../../components/ListComponents/MangaItem";
 import Line from "../../utility/Line";
+import LongText from "../../components/LongText";
 
 const MangaScreen = (props) => {
 
@@ -27,6 +25,13 @@ const MangaScreen = (props) => {
   const data = ['chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3']
   const [fullSummary, setFullSummary] = useState(false)
 
+  const headerHeight = 100
+
+  const scrollY = new Animated.Value(0)
+  const headerY = scrollY.interpolate( {
+    inputRange: [0, headerHeight],
+    outputRange: [0, -headerHeight]
+  })
   const headerComponent = () => {
     return (
         <>
@@ -46,23 +51,17 @@ const MangaScreen = (props) => {
 
           <View style={styles.titleAndSummaryContainer}>
             <Text style={styles.mangaTitle}>Titre manga</Text>
-            <TouchableWithoutFeedback onPress={() => fullSummary ? setFullSummary(false) : setFullSummary(true)}>
-              <Text
-                  style={styles.mangaSummary}
-                  numberOfLines={fullSummary ? 100 : 4}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nulla eget tincidunt nibh, non blandit augue.
-                Maecenas eu efficitur lectus, vel gravida velit.
-                Sed fermentum, mauris nec consectetur mattis, nisi arcu faucibus turpis,
-                sit amet ullamcorper est ligula et purus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Aliquam commodo eros sit amet diam ullamcorper,
-                vel placerat dui elementum. Etiam vehicula faucibus metus, sit amet egestas erat aliquet in.
-                Nunc risus dolor, porttitor eget tellus a, viverra elementum mauris.
-                Nam ut enim et lacus sagittis feugiat. Pellentesque sagittis eleifend laoreet.
-                Cras condimentum ante urna, vitae consectetur ante dapibus et. Donec sit.
-              </Text>
-            </TouchableWithoutFeedback>
+            <LongText text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n' +
+                'Nulla eget tincidunt nibh, non blandit augue.\n' +
+                'Maecenas eu efficitur lectus, vel gravida velit.\n' +
+                'Sed fermentum, mauris nec consectetur mattis, nisi arcu faucibus turpis,\n' +
+                'sit amet ullamcorper est ligula et purus. Lorem ipsum dolor sit amet,\n' +
+                'consectetur adipiscing elit. Aliquam commodo eros sit amet diam ullamcorper,\n' +
+                'vel placerat dui elementum. Etiam vehicula faucibus metus, sit amet egestas erat aliquet in.\n' +
+                'Nunc risus dolor, porttitor eget tellus a, viverra elementum mauris.\n' +
+                'Nam ut enim et lacus sagittis feugiat. Pellentesque sagittis eleifend laoreet.\n' +
+                'Cras condimentum ante urna, vitae consectetur ante dapibus et. Donec sit.'}
+            />
           </View>
 
           <View style={styles.buttonView}>
@@ -90,9 +89,16 @@ const MangaScreen = (props) => {
   }
 
   return (
+      <>
+        <Animated.View style={[styles.header, {height: headerHeight}]}></Animated.View>
       <FlatList
           data={data}
-          style={{backgroundColor: 'white'}}
+          onScroll={Animated.event([
+            {
+              nativeEvent:{contentOffset:{y: scrollY}}
+            }
+          ])}
+          style={{backgroundColor: 'white', paddingTop: 100}}
           keyExtractor={(item, index) => {
             return index.toString()
           }}
@@ -109,6 +115,7 @@ const MangaScreen = (props) => {
               </View>
           )}
       />
+      </>
   );
 };
 
@@ -127,6 +134,12 @@ export default connect(mapStateToProps)(MangaScreen);
 
 const styles = StyleSheet.create({
   container: {
+  },
+  header: {
+    position:'absolute',
+    width: '100%',
+    backgroundColor: colors.darkButton,
+    zIndex: 1,
   },
   closeButton: {
     fontSize: 20,

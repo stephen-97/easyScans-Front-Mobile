@@ -43,8 +43,11 @@ const HomeScreenNavigation = () => {
         </Stack.Group>
         <Stack.Group
           screenOptions={{
+            headerShown: false,
+            animation: 'slide_from_bottom',
             presentation: 'fullScreenModal'
           }}
+
         >
           <Stack.Screen name={"SearchScreen"} component={SearchScreen} />
           <Stack.Screen name={"MangaScreen"} component={MangaScreen} />

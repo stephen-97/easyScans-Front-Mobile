@@ -8,18 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e135ed-b55f-4668-9edb-69aa0b3864bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/screens/AccountScreens/AccountChangeEmailScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/MangaScreen/MangaScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LongText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListComponents/MangaItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListComponents/MangaItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AccountNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/HomeScreenNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/SearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/SearchScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeEmailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputTextBorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountChangeFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreens/AccountChangeFormScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/accountScreens/AccountDeleteFormScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountScreens/AccountDeleteFormScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/MangaScreen/MangaScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MangaScreen/MangaScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +86,7 @@
       <workItem from="1676136442346" duration="9643000" />
       <workItem from="1676561474547" duration="863000" />
       <workItem from="1676563929595" duration="253000" />
-      <workItem from="1676564192530" duration="8381000" />
+      <workItem from="1676564192530" duration="13141000" />
     </task>
     <servers />
   </component>
