@@ -41,6 +41,10 @@ const changeShockingContent = {
   method: 'PUT',
   status: 200
 }
+
+const avatarUrl = (endPoint) => {
+    return `http://${SERVER}/public/avatars/${endPoint}`
+}
 export default {
   //PUT
   changeEmail,
@@ -51,5 +55,8 @@ export default {
 
   //POST
   signIn,
-  signUp
+  signUp,
+
+  //function,
+  avatarUrl
 };
