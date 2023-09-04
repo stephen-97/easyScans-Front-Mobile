@@ -1,10 +1,8 @@
-import React, {useImperativeHandle, useState} from "react";
-import { TextInput, StyleSheet, View, Keyboard } from "react-native";
-import { icons } from "../constants";
+import React, { useState} from "react";
+import { TextInput, StyleSheet, View } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from "../constants/colors";
 import propTypes from "prop-types";
-import Button from "./Button";
 
 const InputText = (props) => {
     const [onFocus, setOnFocus] = useState(false);

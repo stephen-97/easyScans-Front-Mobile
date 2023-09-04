@@ -17,21 +17,25 @@ import url from "../../request/url";
 import colors from "../../constants/colors";
 import Line from "../../utility/Line";
 import LongText from "../../components/LongText";
+import Icon from 'react-native-vector-icons/Ionicons';
+import {useAnimatedStyle, withSpring} from "react-native-reanimated";
+
+const headerHeight = 100
+const topImageHeight = 500
 
 const MangaScreen = (props) => {
 
   const navigation = useNavigation();
 
   const data = ['chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3', 'chapite 1', 'chapitre 2', 'chapitre 3']
-  const [fullSummary, setFullSummary] = useState(false)
-
-  const headerHeight = 100
 
   const scrollY = new Animated.Value(0)
-  const headerY = scrollY.interpolate( {
-    inputRange: [0, headerHeight],
-    outputRange: [0, -headerHeight]
+
+  const animatedHeaderOpacity = scrollY.interpolate({
+    inputRange: [0, topImageHeight - headerHeight],
+    outputRange: [0, 1],
   })
+
   const headerComponent = () => {
     return (
         <>
@@ -77,6 +81,14 @@ const MangaScreen = (props) => {
             </TouchableOpacity>
             </View>
 
+
+          <View style={[styles.itemContainer, {marginBottom: 20}]}>
+            <View style={[styles.itemTome]}>
+              <Text style={[styles.itemTomeText]}>Tome 1 - 5 </Text>
+              <Icon style={[styles.iconTomeView]} name={'ios-search-sharp'} size={40} color="gray" />
+            </View>
+          </View>
+
           <View style={[styles.itemContainer, {marginBottom: 50}]}>
             <Line color={'rgba(0,0,0,0.3)'}/>
             <View style={styles.item}>
@@ -90,15 +102,23 @@ const MangaScreen = (props) => {
 
   return (
       <>
-        <Animated.View style={[styles.header, {height: headerHeight}]}></Animated.View>
+      <Animated.View  style={[styles.header, {height: headerHeight, opacity: animatedHeaderOpacity}]}>
+        <Icon onPress={() => navigation.goBack()} style={[styles.icon, {left: 20}]} name={'chevron-down'} size={40} color="gray" />
+        <Text style={styles.title}>Titre Manga</Text>
+        <Icon style={[styles.icon, {right: 20}]} name={'ios-search-sharp'} size={40} color="gray" />
+      </Animated.View>
       <FlatList
           data={data}
           onScroll={Animated.event([
             {
               nativeEvent:{contentOffset:{y: scrollY}}
             }
-          ])}
-          style={{backgroundColor: 'white', paddingTop: 100}}
+          ],
+     {
+                useNativeDriver: false
+            }
+          )}
+          style={{backgroundColor: 'white'}}
           keyExtractor={(item, index) => {
             return index.toString()
           }}
@@ -138,8 +158,29 @@ const styles = StyleSheet.create({
   header: {
     position:'absolute',
     width: '100%',
-    backgroundColor: colors.darkButton,
+    backgroundColor: 'white',
     zIndex: 1,
+    shadowColor: "#000000",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    shadowOffset: {
+      height: 1,
+      width: 1
+    },
+    justifyContent: 'center'
+  },
+  title:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 20,
+    color: 'gray'
+  },
+  icon:{
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 15
   },
   closeButton: {
     fontSize: 20,
@@ -160,7 +201,7 @@ const styles = StyleSheet.create({
   image: {
     top: 0,
     width: '100%',
-    height: 500,
+    height: topImageHeight,
   },
   linearGradient: {
     position: 'absolute',
@@ -195,12 +236,25 @@ const styles = StyleSheet.create({
   },
   item: {
     height: 50,
-    textAlign: 'center',
     justifyContent: 'center',
   },
   itemText: {
     fontSize: 15,
     textAlign: 'center',
+  },
+  itemTome: {
+    height: 50,
+    justifyContent: 'center',
+  },
+  itemTomeText: {
+    fontSize: 20,
+    textAlign: 'left',
+    color: 'gray',
+    fontWeight: '600',
+    marginLeft: 10,
+  },
+  iconTomeView: {
+
   },
   lastChapter: {
     fontSize: 18,
